@@ -3,9 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+
+//引用mint-ui
 import Mint from 'mint-ui'
 import 'mint-ui/lib/style.min.css'
 Vue.use(Mint)
+
+//引用阿里图标
+import '@/assets/font/iconfont.css'
 
 // Vue.prototype.$mint = Mint;
 
