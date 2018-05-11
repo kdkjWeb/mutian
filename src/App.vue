@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    
     <router-view/>
   </div>
 </template>
@@ -17,8 +16,5 @@ export default {
 	body{
 		margin: 0;
 		padding: 0;
-	}
-	html{
-		font-size: 67.5%;
 	}
 </style>

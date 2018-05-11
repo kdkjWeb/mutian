@@ -13,6 +13,7 @@ Vue.use(Mint)
 import '@/assets/font/iconfont.css'
 
 // Vue.prototype.$mint = Mint;
+Vue.prototype.$mint = Mint;
 
 Vue.config.productionTip = false
 
