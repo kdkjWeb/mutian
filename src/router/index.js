@@ -7,11 +7,10 @@ Vue.use(Router)
 import  index from '@/page/index/index.vue'
 import login from '@/page/login/login'
 
-<<<<<<< HEAD
-=======
+
 
 Vue.use(Router)
->>>>>>> c963665a89fea4b1e3b514dd278af268721a3706
+
 
 export default new Router({
   routes: [
