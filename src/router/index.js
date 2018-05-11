@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 
 import  index from '@/page/index/index.vue'
 
+
 Vue.use(Router)
 
 export default new Router({
