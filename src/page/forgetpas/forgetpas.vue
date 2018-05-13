@@ -29,11 +29,11 @@ export {default} from './forgetpasCtr'
 </script>
 
 <style>
-.forgetpas{
+/* .forgetpas{
     width: 100%;
     height: 100%;
     background-color: #eaeaea;
-}
+} */
 .title{
     position: relative;
     height: .9rem;

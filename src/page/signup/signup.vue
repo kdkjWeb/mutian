@@ -56,7 +56,7 @@
                  </span>
              </li>
          </ul>   
-          <div class="submit_btn">提及</div>
+          <div class="submit_btn">提交</div>
   </div>
 </template>
 
@@ -67,11 +67,11 @@ export {default} from './signupCtr'
 
 
 <style scoped>
-.signup{
+/* .signup{
     width: 100%;
     height: 100%;
     background-color: #eaeaea;
-}
+} */
 .title{
     position: relative;
     height: .9rem;

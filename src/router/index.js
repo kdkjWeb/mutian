@@ -12,6 +12,11 @@ import forgetpas from '@/page/forgetpas/forgetpas'   //忘记密码
 import changepas from '@/page/changepas/changepas'   //修改密码
 import signup from '@/page/signup/signup'   //会员注册
 import allwage from '@/page/allwage/allwage'   //当月总工资
+import bondbankcard from '@/page/bondbankcard/bondbankcard'    //绑定银行卡
+import personal from '@/page/personal/personal'   //个人信息
+import personalcenter from '@/page/personalcenter/personalcenter'   //个人中心会员页面
+import monthbouns from '@/page/monthbouns/monthbouns'   //本月个人奖金
+import accumulativebouns from '@/page/accumulativebouns/accumulativebouns'   //累积个人奖金
 
 
 Vue.use(Router)
@@ -51,6 +56,26 @@ export default new Router({
       path: '/allwage',
       name: 'allwage',
       component: allwage
+    },{
+      path: '/bondbankcard',
+      name: 'bondbankcard',
+      component: bondbankcard
+    },{
+      path: '/personal',
+      name: 'personal',
+      component: personal
+    },{
+      path: '/personalcenter',
+      name: 'personalcenter',
+      component: personalcenter
+    },{
+      path: '/monthbouns',
+      name: 'monthbouns',
+      component: monthbouns
+    },{
+      path: '/accumulativebouns',
+      name: 'accumulativebouns',
+      component: accumulativebouns
     }
   ]
 })

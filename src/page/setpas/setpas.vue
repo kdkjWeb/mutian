@@ -17,9 +17,6 @@ export {default} from './setpasCtr'
 
 <style>
 .setpas{
-    width: 100%;
-    height: 100%;
-    background-color: #eaeaea;
     padding-top: 1.1rem;
 }
 

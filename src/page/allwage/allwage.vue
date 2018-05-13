@@ -42,11 +42,11 @@ export {default} from './allwageCtr'
 
 
 <style scoped>
-.allwage{
+/* .allwage{
     width: 100%;
     height: 100%;
     background-color: #eaeaea;
-}
+} */
 .title{
     position: relative;
     height: .9rem;
