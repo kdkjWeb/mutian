@@ -30,17 +30,17 @@
          </ul>
          <p class="notice">
              <span style="color: #fede00" class="iconfont icon-kuaisufan"></span>
-             限时秒杀
+             <span>限时秒杀</span>
              <span class="iconfont icon-youjiantou1"></span>
          </p>
          <p class="notice">
              <span style="color: #da1f0c" class="iconfont icon-wujiaoxing21"></span>
-             我的收藏
+             <span class="collection">我的收藏<i class="num_icon">1</i></span>
              <span class="iconfont icon-youjiantou1"></span>
          </p>
          <p class="notice">
              <span style="color: #1bf82c" class="iconfont icon-shezhi"></span>
-             设置
+             <span>设置</span>
              <span class="iconfont icon-youjiantou1"></span>
          </p>
 
@@ -170,6 +170,25 @@ export {default} from './personalcenterCtr'
     line-height: .9rem;
     font-size: .36rem;
     border-radius: .15rem;
+}
+
+
+.collection{
+    position: relative;
+}
+.num_icon{
+    position: absolute;
+    right: -.52rem;
+    top: -.2rem;
+    display: inline-block;
+    color: #fff;
+    background-color: #e82a1a;
+    width: .35rem;
+    height: .35rem;
+    border-radius: 50%;
+    text-align: center;
+    line-height: .35rem;
+    font-size: .3rem;
 }
 </style>
 

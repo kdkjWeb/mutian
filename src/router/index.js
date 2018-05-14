@@ -18,6 +18,9 @@ import personalcenter from '@/page/personalcenter/personalcenter'   //个人中�
 import monthbouns from '@/page/monthbouns/monthbouns'   //本月个人奖金
 import accumulativebouns from '@/page/accumulativebouns/accumulativebouns'   //累积个人奖金
 import teamleaderboard from '@/page/teamleaderboard/teamleaderboard'    //团队排行榜
+import productdetails from '@/page/productdetails/productdetails'    //商品详情
+
+
 
 Vue.use(Router)
 
@@ -80,6 +83,10 @@ export default new Router({
       path: '/teamleaderboard',
       name: 'teamleaderboard',
       component: teamleaderboard
+    },{
+      path: '/productdetails',
+      name: 'productdetails',
+      component: productdetails
     }
   ]
 })
