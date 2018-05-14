@@ -4,7 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 //项目所有的路由文件
-import  index from '@/page/index/index.vue'   //首页
+import index from '@/page/index/index.vue'   //首页
 import login from '@/page/login/login'   //登录
 import register from '@/page/register/register'    //注册
 import setpas from '@/page/setpas/setpas'   //设置密码
@@ -18,6 +18,9 @@ import personalcenter from '@/page/personalcenter/personalcenter'   //个人中�
 import monthbouns from '@/page/monthbouns/monthbouns'   //本月个人奖金
 import accumulativebouns from '@/page/accumulativebouns/accumulativebouns'   //累积个人奖金
 import teamleaderboard from '@/page/teamleaderboard/teamleaderboard'    //团队排行榜
+import vip from '@/page/vip/vip'  //推广大使（会员）
+import shoppingcar from '@/page/shoppingcar/shopcar'  //购物车
+import story from '@/page/brandstory/story'  //品牌故事
 
 Vue.use(Router)
 
@@ -80,6 +83,18 @@ export default new Router({
       path: '/teamleaderboard',
       name: 'teamleaderboard',
       component: teamleaderboard
+    },{
+    	path:'/vip',
+    	name:'vip',
+    	component:vip
+    },{
+    	path:'/shoppingcar',
+    	name:'shoppingcar',
+    	component:shoppingcar
+    },{
+    	path:'/story',
+    	name:'story',
+    	component:story
     }
   ]
 })
