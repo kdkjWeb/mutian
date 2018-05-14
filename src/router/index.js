@@ -18,9 +18,17 @@ import personalcenter from '@/page/personalcenter/personalcenter'   //个人中�
 import monthbouns from '@/page/monthbouns/monthbouns'   //本月个人奖金
 import accumulativebouns from '@/page/accumulativebouns/accumulativebouns'   //累积个人奖金
 import teamleaderboard from '@/page/teamleaderboard/teamleaderboard'    //团队排行榜
+<<<<<<< HEAD
 import vip from '@/page/vip/vip'  //推广大使（会员）
 import shoppingcar from '@/page/shoppingcar/shopcar'  //购物车
 import story from '@/page/brandstory/story'  //品牌故事
+=======
+import productdetails from '@/page/productdetails/productdetails'    //商品详情
+import memberbenefits from '@/page/memberbenefits/memberbenefits'   //申请成为会员
+import productadvantages from '@/page/productadvantages/productadvantages'    //产品优势
+import purchasenotes from '@/page/purchasenotes/purchasenotes'   //购买须知
+
+>>>>>>> 3965bea2e286426d0c19618405cf75db62dac361
 
 Vue.use(Router)
 
@@ -84,6 +92,7 @@ export default new Router({
       name: 'teamleaderboard',
       component: teamleaderboard
     },{
+<<<<<<< HEAD
     	path:'/vip',
     	name:'vip',
     	component:vip
@@ -95,6 +104,23 @@ export default new Router({
     	path:'/story',
     	name:'story',
     	component:story
+=======
+      path: '/productdetails',
+      name: 'productdetails',
+      component: productdetails
+    },{
+      path: '/memberbenefits',
+      name: 'memberbenefits',
+      component: memberbenefits
+    },{
+      path: '/productadvantages',
+      name: 'productadvantages',
+      component: productadvantages
+    },{
+      path: '/purchasenotes',
+      name: 'purchasenotes',
+      component: purchasenotes
+>>>>>>> 3965bea2e286426d0c19618405cf75db62dac361
     }
   ]
 })
