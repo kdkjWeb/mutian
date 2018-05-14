@@ -20,7 +20,7 @@ import accumulativebouns from '@/page/accumulativebouns/accumulativebouns'   //�
 import teamleaderboard from '@/page/teamleaderboard/teamleaderboard'    //团队排行榜
 import productdetails from '@/page/productdetails/productdetails'    //商品详情
 import memberbenefits from '@/page/memberbenefits/memberbenefits'   //申请成为会员
-
+import productadvantages from '@/page/productadvantages/productadvantages'    //产品优势
 
 Vue.use(Router)
 
@@ -91,6 +91,10 @@ export default new Router({
       path: '/memberbenefits',
       name: 'memberbenefits',
       component: memberbenefits
+    },{
+      path: '/productadvantages',
+      name: 'productadvantages',
+      component: productadvantages
     }
   ]
 })

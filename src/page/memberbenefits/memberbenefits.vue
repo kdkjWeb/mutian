@@ -104,7 +104,7 @@ export {default} from './memberbenefitsCtr'
     padding: .2rem 0;
 }
 .goByList div{
-    flex: 1;
+    width: 50%;
 }
 
 .product_img{
@@ -121,6 +121,9 @@ export {default} from './memberbenefitsCtr'
 }
 .product_list p{
     padding-top: .2rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .product_list p:nth-child(2){
     color: #565656;
