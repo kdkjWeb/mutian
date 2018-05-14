@@ -21,6 +21,8 @@ import teamleaderboard from '@/page/teamleaderboard/teamleaderboard'    //团队
 import productdetails from '@/page/productdetails/productdetails'    //商品详情
 import memberbenefits from '@/page/memberbenefits/memberbenefits'   //申请成为会员
 import productadvantages from '@/page/productadvantages/productadvantages'    //产品优势
+import purchasenotes from '@/page/purchasenotes/purchasenotes'   //购买须知
+
 
 Vue.use(Router)
 
@@ -95,6 +97,10 @@ export default new Router({
       path: '/productadvantages',
       name: 'productadvantages',
       component: productadvantages
+    },{
+      path: '/purchasenotes',
+      name: 'purchasenotes',
+      component: purchasenotes
     }
   ]
 })
