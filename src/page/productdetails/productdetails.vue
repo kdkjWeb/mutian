@@ -46,7 +46,7 @@
           <p class="discuss_title">
                 <span class="iconfont icon-pinglun1"></span>
                 大家都在说(2545)
-                <span>查看更多》</span>
+                <span class="look_more">查看更多》</span>
           </p>
           <ul class="discuss_list">
                 <li v-for="(item,index) in discussList" :key="index">
@@ -202,10 +202,17 @@ export {default} from './productdetailsCtr'
 .discuss_title span.iconfont{
     vertical-align: middle;
 }
+.look_more{
+    font-size: .3rem;
+    float: right;
+    color: #505050;
+}
+
 .discuss_list li{
     padding: .2rem;
     font-size: .3rem;
     border-bottom: .01rem solid #ddd;
+    color: #505050;
 }
 .discuss_list li dt{
     float: left;
