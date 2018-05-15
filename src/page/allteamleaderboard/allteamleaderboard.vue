@@ -2,11 +2,11 @@
   <div class="teamleaderboard">
       <div class="title">
             <i class="mint-toast-icon mintui mintui-back"></i>
-            团队排行榜
+            总团队排行榜
       </div>
       <div style="height: .9rem"></div>
       <div class="teamleaderboard_banner">
-          <img src="static/images/team.png" width="100%" height="100%" alt="团队排行榜">
+          <img src="static/images/allteam.png" width="100%" height="100%" alt="团队排行榜">
       </div>
 
       <!-- 团队排行榜选项 -->
@@ -41,7 +41,7 @@
 
 
 <script>
-export {default} from './teamleaderboardCtr'
+export {default} from './allteamleaderboardCtr'
 </script>
 
 

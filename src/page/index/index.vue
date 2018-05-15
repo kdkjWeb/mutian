@@ -95,7 +95,7 @@
 			<div class="hot-icon"></div>
 			<div class="hot-title">产品推荐</div>
 			<div class="hotPro-btm">
-				<div class="hotProduct" v-for="item in  proList" :key="item.id">
+				<div class="hotProduct" v-for="item in  proList" :key="item.id" @click="toDetails">
 					<img :src="item.imgsrc" alt="图片显示区域：宽（100%），高（125）">
 					<p class="ad-title">{{item. adname }}</p>
 					<p class="name-title">{{item. proname }}</p>

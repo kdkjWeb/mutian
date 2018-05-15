@@ -198,7 +198,7 @@
 */
   .bottom {
     width: 100%;
-    margin-top: 2%;
+    /* margin-top: 2%; */
     background-color: #e7e7e7;
   }
 
