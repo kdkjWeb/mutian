@@ -25,12 +25,16 @@ import productdetails from '@/page/productdetails/productdetails'    //商品详
 import memberbenefits from '@/page/memberbenefits/memberbenefits'   //申请成为会员
 import productadvantages from '@/page/productadvantages/productadvantages'    //产品优势
 import purchasenotes from '@/page/purchasenotes/purchasenotes'   //购买须知
+<<<<<<< HEAD
 import confirmorder from '@/page/confirmorder/confirmorder'    //确认订单
 import rushtobuy from '@/page/rushtobuy/rushtobuy'  //限时抢购
 import newwelfare from '@/page/newwelfare/newwelfare'  //新人专享
 import myorder from '@/page/myorder/myorder'  //我的订单
 import collection from '@/page/collection/collection'  //我的收藏
 import myteam from '@/page/myteam/myteam'  //我的团队
+
+
+import home from '@/page/home/home'
 
 
 Vue.use(Router)
@@ -40,32 +44,68 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'index',
-      component: index
+      name: 'home',
+      component: home,
+      redirect: 'index',
+      children: [
+        {
+          path: '/',
+          name: 'index',
+          component: index,
+        },{
+          path: '/memberbenefits',
+          name: 'memberbenefits',
+          component: memberbenefits
+        },{
+          path:'/shoppingcar',
+          name:'shoppingcar',
+          component:shoppingcar
+        },{
+          path: '/personalcenter',
+          name: 'personalcenter',
+          component: personalcenter
+        }
+      ]
+    },{
+      path:'/story',
+      name:'story',
+      component:story
+    },{
+      path: '/productadvantages',
+      name: 'productadvantages',
+      component: productadvantages
+    },{
+      path: '/purchasenotes',
+      name: 'purchasenotes',
+      component: purchasenotes
     },{
       path: '/login',
       name: 'login',
       component: login
     },{
+      path: '/forgetpas',
+      name: 'forgetpas',
+      component: forgetpas
+    },{
       path: '/register',
       name: 'register',
       component: register
     },{
-      path: '/setpas',
-      name: 'setpas',
-      component: setpas
+      path: '/signup',
+      name: 'signup',
+      component: signup
     },{
-      path: '/forgetpas',
-      name: 'forgetpas',
-      component: forgetpas
+      path: '/personal',
+      name: 'personal',
+      component: personal
     },{
       path: '/changepas',
       name: 'changepas',
       component: changepas
     },{
-      path: '/signup',
-      name: 'signup',
-      component: signup
+      path: '/setpas',
+      name: 'setpas',
+      component: setpas
     },{
       path: '/allwage',
       name: 'allwage',
@@ -74,14 +114,6 @@ export default new Router({
       path: '/bondbankcard',
       name: 'bondbankcard',
       component: bondbankcard
-    },{
-      path: '/personal',
-      name: 'personal',
-      component: personal
-    },{
-      path: '/personalcenter',
-      name: 'personalcenter',
-      component: personalcenter
     },{
       path: '/monthbouns',
       name: 'monthbouns',
@@ -98,14 +130,6 @@ export default new Router({
     	path:'/vip',
     	name:'vip',
     	component:vip
-    },{
-    	path:'/shoppingcar',
-    	name:'shoppingcar',
-    	component:shoppingcar
-    },{
-    	path:'/story',
-    	name:'story',
-    	component:story
     },{
       path: '/productdetails',
       name: 'productdetails',
@@ -149,4 +173,8 @@ export default new Router({
     }
   ]
 })
+    },
+  ]
+})
+
 

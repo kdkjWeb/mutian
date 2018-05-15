@@ -3,5 +3,12 @@ export default{
         return{
 
         }
+    },
+    methods: {
+        changePas(){
+            this.$router.push({
+                name: 'changepas'
+            })
+        }
     }
 }

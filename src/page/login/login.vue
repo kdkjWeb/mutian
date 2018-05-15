@@ -21,10 +21,10 @@
           </div>
       </div>
 
-      <div class="login_btn">登录</div>
+      <div class="login_btn" @click="login">登录</div>
       <p class="notice">
-          <span>快速注册</span>
-          <span>忘记密码</span>
+          <span @click="register">快速注册</span>
+          <span @click="forgetpas">忘记密码</span>
       </p>
   </div>
 </template>

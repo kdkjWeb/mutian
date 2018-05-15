@@ -29,5 +29,8 @@ export default{
                 }
             ]
         }
-    }
+    },
+    created() {  
+        window.scroll(0, 0);  
+    }  
 }

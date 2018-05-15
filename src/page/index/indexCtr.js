@@ -1,3 +1,5 @@
+import { ECONNABORTED } from "constants";
+
 export default {
 		name: "index",
 		data() {
@@ -24,6 +26,42 @@ export default {
 				killMinute: 0,
 				killSecond: 0
 			}
-		}
+		},
+		methods: {
+			linkTo(index){
+				switch(index){
+					case 0:
+					this.$router.push({
+						name: 'story'
+					})
+					break;
+					case 1:
+					this.$router.push({
+						name: 'productadvantages'
+					})
+					break;
+					case 2:
+					console.log('秒杀')
+					/*this.$router.push({
+						name: 'productadvantages'
+					})*/
+					break;
+					case 3:
+					console.log('新人福利')
+					/*this.$router.push({
+						name: 'productadvantages'
+					})*/
+					break;
+					case 4:
+					this.$router.push({
+						name: 'purchasenotes'
+					})
+					break;
+				}
+			},
+		},
+		created() {  
+			window.scroll(0, 0);  
+		}  
 	
 	}
