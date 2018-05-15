@@ -134,14 +134,6 @@ export default new Router({
       name: 'productdetails',
       component: productdetails
     },{
-      path: '/productadvantages',
-      name: 'productadvantages',
-      component: productadvantages
-    },{
-      path: '/purchasenotes',
-      name: 'purchasenotes',
-      component: purchasenotes
-    },{
       path: '/confirmorder',
       name: 'confirmorder',
       component: confirmorder
