@@ -25,7 +25,6 @@ import productdetails from '@/page/productdetails/productdetails'    //商品详
 import memberbenefits from '@/page/memberbenefits/memberbenefits'   //申请成为会员
 import productadvantages from '@/page/productadvantages/productadvantages'    //产品优势
 import purchasenotes from '@/page/purchasenotes/purchasenotes'   //购买须知
-<<<<<<< HEAD
 import confirmorder from '@/page/confirmorder/confirmorder'    //确认订单
 import rushtobuy from '@/page/rushtobuy/rushtobuy'  //限时抢购
 import newwelfare from '@/page/newwelfare/newwelfare'  //新人专享
@@ -171,9 +170,6 @@ export default new Router({
       name: 'myteam',
       component: myteam
     }
-  ]
-})
-    },
   ]
 })
 
