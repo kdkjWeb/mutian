@@ -109,7 +109,6 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 </template>
 
@@ -119,6 +118,7 @@
 
 <style>
 	#index {
+		position: relative;
 		background-color: #F6F6F6;
 	}
 	
@@ -498,4 +498,6 @@
 		line-height: .3rem;
 		margin-top: .08rem;
 	}
+
+
 </style>
