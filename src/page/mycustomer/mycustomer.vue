@@ -14,7 +14,7 @@
 		<!--团队成员-->
 		<div>
 			
-			<div class="people" v-for="people in peoples" :key="index">
+			<div class="people" v-for="(people,index) in peoples" :key="index">
 				<div class="people_head">
 					<span class="pName">{{people.name}}</span>
 					<span class="Pwx">微信号：<span>{{people.wechart}}</span></span>
