@@ -28,6 +28,7 @@ export default {
 			}
 		},
 		methods: {
+			//品牌故事、产品优势导航
 			linkTo(index){
 				switch(index){
 					case 0:
@@ -41,16 +42,15 @@ export default {
 					})
 					break;
 					case 2:
-					console.log('秒杀')
-					/*this.$router.push({
-						name: 'productadvantages'
-					})*/
+					this.$router.push({
+						name: 'rushtobuy'
+					})
 					break;
 					case 3:
 					console.log('新人福利')
-					/*this.$router.push({
-						name: 'productadvantages'
-					})*/
+					this.$router.push({
+						name: 'newwelfare'
+					})
 					break;
 					case 4:
 					this.$router.push({
@@ -59,6 +59,11 @@ export default {
 					break;
 				}
 			},
+			toDetails(){
+				this.$router.push({
+					name: 'productdetails'
+				})
+			}
 		},
 		created() {  
 			window.scroll(0, 0);  

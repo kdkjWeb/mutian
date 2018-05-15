@@ -17,6 +17,7 @@ import personal from '@/page/personal/personal'   //个人信息
 import personalcenter from '@/page/personalcenter/personalcenter'   //个人中心会员页面
 import monthbouns from '@/page/monthbouns/monthbouns'   //本月个人奖金
 import accumulativebouns from '@/page/accumulativebouns/accumulativebouns'   //累积个人奖金
+import allteamleaderboard from '@/page/allteamleaderboard/allteamleaderboard'    //团队排行榜
 import teamleaderboard from '@/page/teamleaderboard/teamleaderboard'    //团队排行榜
 import vip from '@/page/vip/vip'  //推广大使（会员）
 import shoppingcar from '@/page/shoppingcar/shopcar'  //购物车
@@ -63,6 +64,10 @@ export default new Router({
           path: '/personalcenter',
           name: 'personalcenter',
           component: personalcenter
+        },{
+          path:'/vip',
+          name:'vip',
+          component:vip
         }
       ]
     },{
@@ -126,10 +131,6 @@ export default new Router({
       name: 'teamleaderboard',
       component: teamleaderboard
     },{
-    	path:'/vip',
-    	name:'vip',
-    	component:vip
-    },{
       path: '/productdetails',
       name: 'productdetails',
       component: productdetails
@@ -161,6 +162,10 @@ export default new Router({
     	path: '/mycustomer',
       name: 'mycustomer',
       component: mycustomer
+		},{
+      path: '/allteamleaderboard',
+      name: 'allteamleaderboard',
+      component: allteamleaderboard
     }
   ]
 })

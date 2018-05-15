@@ -64,8 +64,10 @@ export {default} from './personalcenterCtr'
 .personalcenter_banner{
     width: 100%;
     height: 5.3rem;
-    background-color: red;
     padding-top: .001rem;
+    background-image: url('../../assets/png/personalBg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .user_header{
     width: 1.9rem;

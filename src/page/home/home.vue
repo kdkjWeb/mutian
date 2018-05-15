@@ -49,7 +49,7 @@ export default {
 					break;
 					case 1:
 					this.$router.push({
-					  name: 'memberbenefits'
+					  name: 'vip'
 					})
 					break;
 					case 2:
