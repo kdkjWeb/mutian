@@ -25,7 +25,12 @@ import productdetails from '@/page/productdetails/productdetails'    //商品详
 import memberbenefits from '@/page/memberbenefits/memberbenefits'   //申请成为会员
 import productadvantages from '@/page/productadvantages/productadvantages'    //产品优势
 import purchasenotes from '@/page/purchasenotes/purchasenotes'   //购买须知
-
+import confirmorder from '@/page/confirmorder/confirmorder'    //确认订单
+import rushtobuy from '@/page/rushtobuy/rushtobuy'  //限时抢购
+import newwelfare from '@/page/newwelfare/newwelfare'  //新人专享
+import myorder from '@/page/myorder/myorder'  //我的订单
+import collection from '@/page/collection/collection'  //我的收藏
+import myteam from '@/page/myteam/myteam'  //我的团队
 
 
 Vue.use(Router)
@@ -117,6 +122,31 @@ export default new Router({
       path: '/purchasenotes',
       name: 'purchasenotes',
       component: purchasenotes
+    },{
+      path: '/confirmorder',
+      name: 'confirmorder',
+      component: confirmorder
+    },{
+    	path: '/rushtobuy',
+      name: 'rushtobuy',
+      component: rushtobuy
+    },{
+    	path: '/newwelfare',
+      name: 'newwelfare',
+      component: newwelfare
+    },{
+    	path: '/myorder',
+      name: 'myorder',
+      component: myorder
+    },{
+    	path: '/collection',
+      name: 'collection',
+      component: collection
+    },{
+    	path: '/myteam',
+      name: 'myteam',
+      component: myteam
     }
   ]
 })
+
