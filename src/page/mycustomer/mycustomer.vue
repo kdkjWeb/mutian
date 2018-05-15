@@ -1,6 +1,6 @@
 <template>
-	<div class="myteam"><!--我的团队-->
-		<mt-header title="我的团队">
+	<div class="mycustomer"><!--我的客户-->
+		<mt-header title="我的客户">
 			<router-link to="/" slot="left">
 				<mt-button icon="back"></mt-button>
 			</router-link>
@@ -23,10 +23,8 @@
 				<div class="pContent">
 					<img src="../../../static/images/1.png" alt="" />
 					<div>
-						<span>他的团队({{people.teamNum}})人</span>
-						<span>团队月销<span>{{people.monthMoney}}</span>元</span>
-						<span>团队奖金<span>{{people.teameMoney}}</span>元</span>
-					</div>
+						<span>总消费额： <span>5105元</span></span>
+					</div>	
 				</div>
 			</div>
 			
@@ -37,7 +35,7 @@
 </template>
 
 <script>
-	export {default} from './myteamCtr'
+	export {default} from './mycustomerCtr'
 </script>
 
 <style>
@@ -104,15 +102,11 @@
 		padding-top: .2rem;
 		float: left;
 		margin-left: .5rem;
-		/*width: 4.5rem;*/
+		font-size: .4rem;
+		height: 1.35rem;
+		line-height: 1.35rem;
 	}
-	.pContent div>span{
-		font-size: .18rem;
-		font-weight: 700;
-		display: block;
-		margin-bottom: .23rem;
-	}
-	.pContent div>span>span{
-		color: red;
+	.pContent div span span{
+		color: #fe902e;
 	}
 </style>

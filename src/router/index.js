@@ -31,7 +31,7 @@ import newwelfare from '@/page/newwelfare/newwelfare'  //新人专享
 import myorder from '@/page/myorder/myorder'  //我的订单
 import collection from '@/page/collection/collection'  //我的收藏
 import myteam from '@/page/myteam/myteam'  //我的团队
-
+import mycustomer from '@/page/mycustomer/mycustomer'   //我的客户
 
 import home from '@/page/home/home'
 
@@ -157,6 +157,10 @@ export default new Router({
     	path: '/myteam',
       name: 'myteam',
       component: myteam
+    },{
+    	path: '/mycustomer',
+      name: 'mycustomer',
+      component: mycustomer
     }
   ]
 })

@@ -15,7 +15,7 @@
 			
 			<div class="notOrder">
 				<img src="../../../static/images/dongzuo.png"/>
-				<span>这里空空如也!快去下点吧~</span>
+				<span>这里空空如也!快去下单吧~</span>
 			</div>
 			
 		</div>
