@@ -1,7 +1,7 @@
 <template>
   <div class="personalcenter">
          <div class="personalcenter_banner">
-             <div class="user_header">
+             <div class="user_header" @click="personalCenter">
                  <img src="../../assets/png/1.png" width="100%" height="100%" alt="头像">
              </div>
              <p>梦想</p>
@@ -44,7 +44,7 @@
              <span class="iconfont icon-youjiantou1"></span>
          </p>
 
-         <div class="login_out">退出登录</div>
+         <div class="login_out" @click="loginOut">退出登录</div>
   </div>
 </template>
 

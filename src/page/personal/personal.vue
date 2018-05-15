@@ -27,7 +27,7 @@
               <span class="user_nickname">1993-01-01</span>
               <span class="iconfont icon-youjiantou1"></span>
           </li>
-          <li class="changepas">修改密码
+          <li class="changepas" @click="changePas">修改密码
               <span class="iconfont icon-youjiantou1"></span>
           </li>
           <li>管理收货地址

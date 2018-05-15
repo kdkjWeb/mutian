@@ -26,23 +26,23 @@
 		</div>
 
 		<div class="cont_tit">
-			<div>
+			<div @click="linkTo(0)">
 				<img src="../../../static/images/pp.png" alt="" />
 				<span>品牌故事</span>
 			</div>
-			<div>
+			<div @click="linkTo(1)">
 				<img src="../../../static/images/ys.png" alt="" />
 				<span>产品优势</span>
 			</div>
-			<div>
+			<div @click="linkTo(2)">
 				<img src="../../../static/images/ms.png" alt="" />
 				<span>秒杀</span>
 			</div>
-			<div>
+			<div @click="linkTo(3)">
 				<img src="../../../static/images/fl.png" alt="" />
 				<span>新人福利</span>
 			</div>
-			<div>
+			<div @click="linkTo(4)">
 				<img src="../../../static/images/gm.png" alt="" />
 				<span>购买须知</span>
 			</div>
@@ -109,6 +109,9 @@
 				</div>
 			</div>
 		</div>
+
+		
+
 	</div>
 </template>
 
