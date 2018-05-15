@@ -134,10 +134,6 @@ export default new Router({
       name: 'productdetails',
       component: productdetails
     },{
-      path: '/memberbenefits',
-      name: 'memberbenefits',
-      component: memberbenefits
-    },{
       path: '/productadvantages',
       name: 'productadvantages',
       component: productadvantages
