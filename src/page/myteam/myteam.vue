@@ -20,7 +20,7 @@
 					<span class="Pwx">微信号：<span>{{people.wechart}}</span></span>
 					<span class="pNum">电话：<span>{{people.phone}}</span></span>
 				</div>
-				<div class="pContent">
+				<div class="tContent">
 					<img src="../../../static/images/1.png" alt="" />
 					<div>
 						<span>他的团队({{people.teamNum}})人</span>
@@ -88,11 +88,11 @@
 		color: #fe902e;
 	}
 	
-	.pContent{
+	.tContent{
 		overflow: hidden;
 		border-bottom: 2px solid #e8e8e8;	
 	}
-	.pContent img{
+	.tContent img{
 		width: 1.35rem;
 		height: 1.35rem;
 		border-radius: 100%;
@@ -100,19 +100,19 @@
 		float: left;
 		margin: .3rem 0;
 	}
-	.pContent div{
+	.tContent div{
 		padding-top: .2rem;
 		float: left;
 		margin-left: .5rem;
 		/*width: 4.5rem;*/
 	}
-	.pContent div>span{
+	.tContent div>span{
 		font-size: .18rem;
 		font-weight: 700;
 		display: block;
 		margin-bottom: .23rem;
 	}
-	.pContent div>span>span{
+	.tContent div>span>span{
 		color: red;
 	}
 </style>
