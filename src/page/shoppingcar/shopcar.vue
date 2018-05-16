@@ -12,16 +12,18 @@
 		
 		<!--====商品列表=============-->
 		<div>
-			<div v-for="item in goods" :key="item.id" class="goods">
-				<span class="iconfont box" :class="item.isChecked?'icon-roundcheckfill':'icon-roundcheck'"></span>
+			<div v-for="(item,index) in goods" :key="item.id" class="goods">
+				
+				<span class="iconfont box" :class="item.active?'icon-roundcheckfill':'icon-roundcheck'" @click="changebox(item,index)"></span>
+							
 				<img src="../../../static/images/1.png" alt="" class="goodsImg"/>
 				<div class="goodsDo">
 					<span class="goodsName">{{item.goodsName}}</span>
 					<span class="goods_money">￥{{item.goodMoney}}</span>
 					<div class="changenum">
-						<span class="remNum"><i class="iconfont icon-jianhao"></i></span>
-						<input type="number" value="0"/>
-						<span class="addNum"><i class="iconfont icon-jiahao1"></i></span>
+						<span class="remNum"><i class="iconfont icon-jianhao" @click="changeMoney(item,-1)"></i></span>
+						<input type="number" :value="item.productQuantity" v-on:change="changeNum(index)"/>
+						<span class="addNum"><i class="iconfont icon-jiahao1" @click="changeMoney(item,+1)"></i></span>
 					</div>
 				</div>
 				<span class="more">更多 <i class="iconfont icon-youjiantou2"></i></span>
@@ -31,7 +33,7 @@
 		
 		<!--=====foot部分==========-->
 		<div id="goodFood">
-			<span class="iconfont box icon-roundcheck" @click="allDo" :class=""></span>
+			<span class="iconfont box" :class="allState?'icon-roundcheckfill':'icon-roundcheck'" @click="allDo()"></span>
 			<span class="allDo">全选</span>
 			<div class="pay">
 				<div class="copePay">
@@ -44,7 +46,7 @@
 			</div>
 			
 			<div id="payDo">
-				<span>去结算</span>(<span>5</span>)
+				<span>去结算</span>(<span>{{checkboxModel.length}}</span>)
 			</div>
 			
 		</div>
@@ -126,11 +128,11 @@
 		height: 1.65rem;
 		margin-left: .2rem;
 	}
-	.icon-roundcheckfill{
-		color: #69ba31;
-	}
 	.icon-roundcheck{
 		color: #D3D3D3;
+	}
+	.icon-roundcheckfill{
+		color: #69ba31;
 	}
 	.more{
 		color: #808080;
@@ -231,4 +233,9 @@
 		background-color: #68b831;
 		font-size: .34rem;
 	}
+	/*.box{
+		width: 10px;
+		height: 10px;
+		background-color: red;
+	}*/
 </style>
