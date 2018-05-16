@@ -65,7 +65,7 @@ export default{
                 username: this.username,
                 pids: this.pids,
                 password: this.password
-            }).then(res=>{
+            },'load').then(res=>{
                 console.log(res)
             })
         }
