@@ -6,18 +6,18 @@
       </div>
       <!-- banner图 -->
       <div class="banner">
-          
+          <img src="static/images/banner.png" width="100%" height="100%" alt="">
       </div>
       <div class="row">
           <div class="row_input">
               <span class="iconfont icon-wode"></span>
-              <input type="text" placeholder="手机号">
+              <input type="text" v-model="username" placeholder="手机号">
           </div>
       </div>
       <div class="row">
           <div class="row_input row_input1">
             <span class="iconfont icon-mima"></span>
-            <input type="password" placeholder="请输入密码">
+            <input type="password" v-model="password" placeholder="请输入密码">
           </div>
       </div>
 
@@ -58,7 +58,6 @@ export {default} from './loginCtr'
 .banner{
     width: 100%;
     height: 2.95rem;
-    background: red;
 }
 
 .row{

@@ -8,12 +8,13 @@ import router from './router'
 import Mint from 'mint-ui'
 import 'mint-ui/lib/style.min.css'
 Vue.use(Mint)
-
+import { Toast,Indicator } from 'mint-ui'
+Vue.$toast = Vue.prototype.$toast = Toast
+Vue.$indicator = Vue.prototype.$indicator = Indicator
 //引用阿里图标
 import '@/assets/font/iconfont.css'
 
-// Vue.prototype.$mint = Mint;
-Vue.prototype.$mint = Mint;
+
 
 
 //获取vuex

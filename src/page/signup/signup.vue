@@ -10,7 +10,7 @@
                      <span class="iconfont icon-weibiaoti-_huabanfuben"></span>
                  </span>
                  <span class="title">昵称：</span>
-                 <input type="text" placeholder="请输入昵称">
+                 <input type="text" v-model="nickname" placeholder="请输入昵称">
                  <span class="arrow">
                      <span class="iconfont icon-youjiantou1"></span>
                  </span>
@@ -20,7 +20,7 @@
                      <span class="iconfont icon-dianhua2"></span>
                  </span>
                  <span class="title">手机：</span>
-                 <input type="number" placeholder="请输入手机号">
+                 <input type="number" v-model="username" placeholder="请输入手机号">
                  <span class="arrow">
                      <span class="iconfont icon-youjiantou1"></span>
                  </span>
@@ -30,7 +30,8 @@
                      <span class="iconfont icon-yanzhengma"></span>
                  </span>
                  <span class="title">验证码：</span>
-                 <input type="number" placeholder="请输入验证码">
+                 <input type="number" v-model="pids" placeholder="请输入验证码">
+                 <span class="verification_btn" @click="verificationBtn">{{verification}}</span>
                  <span class="arrow">
                      <span class="iconfont icon-youjiantou1"></span>
                  </span>
@@ -40,7 +41,7 @@
                      <span class="iconfont icon-mima3"></span>
                  </span>
                  <span class="title">密码：</span>
-                 <input type="password" placeholder="请输入密码">
+                 <input type="password" v-model="password" placeholder="请输入密码">
                  <span class="arrow">
                      <span class="iconfont icon-youjiantou1"></span>
                  </span>
@@ -50,13 +51,13 @@
                      <span class="iconfont icon-mima3"></span>
                  </span>
                  <span class="title">确认密码：</span>
-                 <input class="password" type="password" placeholder="请确认密码">
+                 <input class="password" v-model="comfirmPas" type="password" placeholder="请确认密码">
                  <span class="arrow">
                      <span class="iconfont icon-youjiantou1"></span>
                  </span>
              </li>
          </ul>   
-          <div class="submit_btn">提交</div>
+          <div class="submit_btn" @click="submitBtn">提交</div>
   </div>
 </template>
 
@@ -143,6 +144,21 @@ export {default} from './signupCtr'
     margin: .3rem auto 0;
     border-radius: .12rem;
     color: #fff;
+}
+
+
+.verification_btn{
+    display: inline-block;
+    width: 1.9rem;
+    height: .55rem;
+    position: absolute;
+    right: .65rem;
+    top: .25rem;
+    z-index: 99;
+    background: #e4e4e4;
+    font-size: .32rem;
+    text-align: center;
+    line-height: .55rem;
 }
 </style>
 

@@ -1,6 +1,6 @@
 import Axios from './index'
 
-
+import Vue from 'vue'
 
 /**
  * 公用的server 方法
@@ -9,28 +9,41 @@ import Axios from './index'
 
  export default{
      //get请求
-     get:(url,data)=>{
-        Indicator.open({
-            text: '加载中...',
-            spinnerType: 'fading-circle'
-          });
+     get:(url,data,load)=>{
         return new Promise((resolve,reject)=>{
             Axios.get(url,{
                 params: data
             }).then((res)=>{
-                if(load || load == undefined){
-                    Indicator.close();
+                if(!load || load == undefined){
+                    Vue.$indicator.open({
+                        text: '加载中...',
+                        spinnerType: 'fading-circle'
+                      });
                 }
-                resolve(res.data)
+                if(res.data.code == 0){
+                    resolve(res.data)
+                }else if(res.data.code == 500){
+                    Vue.$toast({
+                        message: res.data.msg,
+                        duration: 2000
+                    })
+                }
+            },err=>{
+                if (load || load == undefined) {
+                    Vue.$indicator.close();
+                  }
+                Vue.$toast({
+                    message: res.data.msg,
+                    duration: 2000
+                })
             }).catch((err)=>{
-                if(load || load == undefined){
-                    Indicator.close();
-                }
-                if(err.data.msg){
-                    this.$toast(res?res.data.msg:"操作失败")
-                }else{
-                    this.$toast(res?res.data.msg:"服务器异常")
-                }
+                if (load || load == undefined) {
+                    Vue.$indicator.close();
+                  }
+                Vue.$toast({
+                    message: '网络好像出错了',
+                    duration: 2000
+                })
                 reject(err)
             })
         })
@@ -39,8 +52,9 @@ import Axios from './index'
 
     //post请求	
     post: (url,data,load)=>{
-        if(load || load == undefined){
-            Indicator.open({
+
+        if(!load || load == undefined){
+            Vue.$indicator.open({
                 text: '加载中...',
                 spinnerType: 'fading-circle'
               });
@@ -48,19 +62,34 @@ import Axios from './index'
         return new Promise((resolve,reject)=>{
             Axios.post(url,data)
             .then((res)=>{
-                if(load || load == undefined){
-                    Indicator.close();
+                if (load || load == undefined) {
+                    Vue.$indicator.close();
+                  }
+                if(res.data.code == 0){
+                    resolve(res.data)
+                }else if(res.data.code == 500){
+                    Vue.$toast({
+                        message: res.data.msg,
+                        duration: 2000
+                    })
                 }
-                resolve(res.data)
+                
+            },err=>{
+                if (load || load == undefined) {
+                    Vue.$indicator.close();
+                  }
+                Vue.$toast({
+                    message: res.data.msg,
+                    duration: 2000
+                })
             }).catch((err)=>{
-                if(load || load == undefined){
-                    Indicator.close();
-                }
-                if(err.data.msg){
-                    this.$toast(res?res.data.msg:"操作失败")
-                }else{
-                    this.$toast(res?res.data.msg:"服务器异常")
-                }
+                if (load || load == undefined) {
+                    Vue.$indicator.close();
+                  }
+                Vue.$toast({
+                    message: '网络好像出错了',
+                    duration: 2000
+                })
                 reject(err)
             })
         })

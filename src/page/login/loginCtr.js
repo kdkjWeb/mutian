@@ -1,7 +1,8 @@
 export default{
     data(){
         return{
-            
+            username: '',
+            password: ''
         }
     },
     methods: {
@@ -19,8 +20,23 @@ export default{
         },
         //点击登录
         login(){
-            this.$router.push({
-                name: 'index'
+            if(!this.username){
+                this.$toast('请输入手机号')
+                return;
+            }
+            if(!this.password){
+                this.$toast('请输入密码')
+                return;
+            }
+            this.$post('login',{
+                username: this.username,
+                password: this.password
+            },'load').then(res=>{
+                setTimeout(()=>{
+                    this.$router.push({
+                        name: 'index'
+                    })
+                },1500)
             })
         }
     }
