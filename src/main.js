@@ -15,12 +15,22 @@ import '@/assets/font/iconfont.css'
 // Vue.prototype.$mint = Mint;
 Vue.prototype.$mint = Mint;
 
+
+//获取vuex
+import store from './store/store.js'   //vuex
+
+// 封装方法axios的get以及post
+import  Server from './server/server.js'
+Vue.prototype.$get = Server.get;  //get请求
+Vue.prototype.$post = Server.post;  //post请求
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
