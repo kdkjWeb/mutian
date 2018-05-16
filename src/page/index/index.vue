@@ -167,13 +167,27 @@
 	
 	#banner img {
 		width: 100%;
+		display: block;
 	}
-	
-	.head_tit div {
+	.head_tit{
 		width: 100%;
 		overflow-x: scroll;
-		height: 20px;
-		font-size: .16rem;
+		
+	}
+	.head_tit div {
+		overflow-x: scroll;
+		width: auto;
+		overflow-y: hidden;
+		font-size: .15rem;
+		white-space: nowrap;
+	}
+	.head_tit span{
+		display: inline-block;	
+		min-width: 2rem;
+		padding: 0 2px;
+		height: .6rem;
+		line-height: .6rem;
+		text-align: center;
 	}
 	.head_tit{
 		border-bottom:.12rem solid #D3D3D3;
@@ -220,12 +234,7 @@
 		color: #000000;
 		font-weight: 700;
 	}
-	.titList{
-		width: 20%;
-		display: block;
-		float: left;
-		text-align: center;
-	}
+	
 	/*===轮播======*/
 	.mint-swipe{
 		height: 2rem;

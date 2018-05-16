@@ -31,7 +31,7 @@
 		
 		<!--=====foot部分==========-->
 		<div id="goodFood">
-			<span class="iconfont box icon-roundcheck"></span>
+			<span class="iconfont box icon-roundcheck" @click="allDo" :class=""></span>
 			<span class="allDo">全选</span>
 			<div class="pay">
 				<div class="copePay">

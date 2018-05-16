@@ -3,9 +3,10 @@ export default {
     return{
     	full:15,   //满多少包邮
     	reduce:5,    //差多少
+    	all:false,
     	goods:[{
     		goodsName:"冷吃兔",
-    		isChecked:true,
+    		isChecked:false,
     		goodsImg:'',
     		goodMoney:25,
     		goodsNumner:2,
@@ -19,7 +20,7 @@ export default {
     		goodId:2
     	},{
     		goodsName:"芋儿鸡",
-    		isChecked:true,
+    		isChecked:false,
     		goodsImg:'',
     		goodMoney:25,
     		goodsNumner:2,
@@ -29,6 +30,10 @@ export default {
   },methods:{
     	changebox(index){
     		this.goods[index].isChecked = !this.goods[index].isChecked ;
+    	},
+    	allDo(){
+    		
     	}
+    	
     }
 }

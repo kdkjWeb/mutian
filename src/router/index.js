@@ -33,6 +33,8 @@ import myorder from '@/page/myorder/myorder'  //我的订单
 import collection from '@/page/collection/collection'  //我的收藏
 import myteam from '@/page/myteam/myteam'  //我的团队
 import mycustomer from '@/page/mycustomer/mycustomer'   //我的客户
+import twocode from '@/page/twocode/twocode'  //推广二维码
+import forward from '@/page/forward/forward'  //推广二维码
 
 import home from '@/page/home/home'
 
@@ -166,6 +168,14 @@ export default new Router({
       path: '/allteamleaderboard',
       name: 'allteamleaderboard',
       component: allteamleaderboard
+    },{
+    	path: '/twocode',
+      name: 'twocode',
+      component: twocode
+    },{
+    	path: '/forward',
+      name: 'forward',
+      component: forward
     }
   ]
 })
