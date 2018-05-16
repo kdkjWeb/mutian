@@ -47,10 +47,14 @@ export default {
     gotable(val){
       switch(val){
         case 0:
-        console.log('我的客户')
+        this.$router.push({
+          name: 'mycustomer'
+        })
         break;
         case 1:
-        console.log('我的团队')
+        this.$router.push({
+          name: 'myteam'
+        })
         break;
         case 2:
         console.log('推广二维码')
@@ -74,6 +78,21 @@ export default {
     }	
   },
   watch: {
-    
+    // 监听selected属性   切换页面
+    selected(newValue){
+      if(newValue == 1){
+        this.$router.push({
+          name: 'vip'
+        })
+      }else if(newValue == 2){
+        this.$router.push({
+          name: 'monthbouns'
+        })
+      }else if(newValue == 3){
+        this.$router.push({
+          name: 'accumulativebouns'
+        })
+      }
+    }
   }
 }
