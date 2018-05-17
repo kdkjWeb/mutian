@@ -7,20 +7,20 @@
 
       <div class="phone">
         <span>手机号</span>
-        <input type="number" placeholder="请输入手机号">
+        <input type="number" v-model="telphone" placeholder="请输入手机号">
       </div>
       <div class="verification">
         <div class="verification_input">
             <span>验证码</span>
-            <input type="number" placeholder="请输入验证码">
+            <input type="number" v-model="verificationCode" placeholder="请输入验证码">
         </div>
-      <div class="verification_btn">获取验证码</div>
+      <div class="verification_btn" @click="verificationBtn">{{verification}}</div>
     </div>
     <div class="phone phone1">
         <span>新密码</span>
-        <input type="password" placeholder="请输入密码">
+        <input type="password" v-model="newpwd" placeholder="请输入密码">
     </div>
-    <div class="comfirm_btn">确认</div>
+    <div class="comfirm_btn" @click="comfirmBtn">确认</div>
   </div>
 </template>
 

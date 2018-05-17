@@ -13,35 +13,41 @@ export default{
     methods:{
         //获取验证码
         verificationBtn(){
-            if(!this.username){
+            //判断手机号输入是否为空
+            /*if(!this.username){
                 this.$toast({
                     message: '请输入手机号',
                     duration: 1500
                 })
                 return;
+            }*/
+            //判断是否是合法的手机号
+            let telphoneReg=/^1[3|4|5|8|7][0-9]\d{4,8}$/ ;  //手机号正则表达式
+            if(!telphoneReg.test(this.username)){
+                this.$toast({
+                    message: '请输入正确的手机号',
+                    duration: 1500
+                })
+                return;
             }
+
+            let num = 60
+            let timer = setInterval(()=>{
+                num -- 
+                this.verification ='请'+num + 's后再试'
+                if(num == 0){
+                    clearInterval(timer)
+                    this.verification = '获取验证码'
+                    return;
+                }
+            },1000)
+
             if(this.flag){
                 this.$get('user/getcode',{
                     phone: this.username
                 },'load').then(res=>{
                     this.flag = false
-                    if(res.code == 0){
-                        this.verification = '60s';
-                        setInterval(()=>{
-                            let num = parseInt(this.verification )
-                            num -- 
-                            this.verification = num + 's'
-                            if(num == 0){
-                                this.verification = '获取验证码'
-                            }
-                        },1000)
-                    }
                 })
-            }else{
-                this.$toast({
-                        message: '请'+this.verification + '再试',
-                        duration: 1500
-                    })
             }
         },
         //提交
@@ -64,9 +70,20 @@ export default{
                 nickname: this.nickname,
                 username: this.username,
                 pids: this.pids,
-                password: this.password
+                password: this.password,
+                pid: 0
             },'load').then(res=>{
-                console.log(res)
+                if(res.code == 0){
+                    this.$toast({
+                        message: '注册成功',
+                        duration: 2000
+                    })
+                    setTimeout(()=>{
+                        this.$router.push({
+                            name: 'login'
+                        })
+                    },2000)
+                }
             })
         }
     }
