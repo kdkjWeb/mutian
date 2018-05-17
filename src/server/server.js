@@ -32,10 +32,19 @@ import Vue from 'vue'
                 if (load || load == undefined) {
                     Vue.$indicator.close();
                   }
-                Vue.$toast({
-                    message: res.data.msg,
-                    duration: 2000
-                })
+                  
+                if(res.data.nsg){
+                    Vue.$toast({
+                        message: res.data.msg,
+                        duration: 2000
+                    })
+                }else{
+                    Vue.$toast({
+                        message: '网络好像出错了',
+                        duration: 2000
+                    })
+                }
+                
             }).catch((err)=>{
                 if (load || load == undefined) {
                     Vue.$indicator.close();
@@ -78,10 +87,19 @@ import Vue from 'vue'
                 if (load || load == undefined) {
                     Vue.$indicator.close();
                   }
-                Vue.$toast({
-                    message: res.data.msg,
-                    duration: 2000
-                })
+
+                if(res.data.nsg){
+                    Vue.$toast({
+                        message: res.data.msg,
+                        duration: 2000
+                    })
+                }else{
+                    Vue.$toast({
+                        message: '网络好像出错了',
+                        duration: 2000
+                    })
+                }
+
             }).catch((err)=>{
                 if (load || load == undefined) {
                     Vue.$indicator.close();

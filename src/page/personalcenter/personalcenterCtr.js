@@ -24,8 +24,12 @@ export default{
     methods: {
         //点击退出登录按钮
         loginOut(){
-            this.$router.push({
-                name: 'login'
+            this.$get('logout',{},'load').then(res=>{
+                if(res.code == 0){
+                    this.$router.push({
+                        name: 'login'
+                    })
+                }
             })
         },
         //点击头像查看详细的个人信息
