@@ -38,7 +38,7 @@ import Vue from 'vue'
                     Vue.$indicator.close();
                   }
                   
-                if(res.data.nsg){
+                if(res.data.msg){
                     Vue.$toast({
                         message: res.data.msg,
                         duration: 2000
@@ -96,7 +96,7 @@ import Vue from 'vue'
                     Vue.$indicator.close();
                   }
 
-                if(res.data.nsg){
+                if(res.data.msg){
                     Vue.$toast({
                         message: res.data.msg,
                         duration: 2000
