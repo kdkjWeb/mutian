@@ -32,6 +32,9 @@ export default{
                 username: this.username,
                 password: this.password
             },'load').then(res=>{
+                //登录成功之后保存用户信息存入vuex
+                this.$store.commit('setUserInfo',res.data)
+                //登录成功之后跳转到首页
                 setTimeout(()=>{
                     this.$router.push({
                         name: 'index'

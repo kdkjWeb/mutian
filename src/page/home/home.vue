@@ -48,9 +48,15 @@ export default {
 					})
 					break;
 					case 1:
-					this.$router.push({
-					  name: 'vip'
-					})
+					if(this.userInfo.type == 1){
+                        this.$router.push({
+                        name: 'vip'
+                        })
+                    }else{
+                        this.$router.push({
+                        name: 'memberbenefits'
+                        })
+                    }
 					break;
 					case 2:
 					this.$router.push({
@@ -64,6 +70,14 @@ export default {
 					break;
 				}
 			  }
+    },
+    computed: {
+        userInfo(){
+            return this.$store.getters.getUserInfo
+        }
+    },
+    mounted() {
+        
     }
 }
 </script>
