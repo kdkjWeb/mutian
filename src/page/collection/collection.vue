@@ -8,15 +8,18 @@
 		</mt-header>
 		
 		<div>   <!--我的收藏商品-->
-			<div class="goods" v-for="good in goodsList" :key="good.id">
-				<div class="goodsDo" v-if="isShow"><i class="iconfont icon-roundcheck"></i></div>
+			<div class="goods" v-for="(good,index) in goodsList" :key="good.id">
+				<div class="goodsDo" v-if="isShow"><i class="iconfont" :class="good.isActive?'icon-roundcheckfill':'icon-roundcheck'" @click="changeActive(good,index)"></i></div>
 				<img src="../../../static/images/12.png" class="goodsImg"/>
 				<div class="goods_Msg">
 					<p class="goodsName"><span>{{good.adname}}</span>&nbsp; <span>200g</span></p>
 					<p class="goodsMoney">￥<span>{{good.price}}</span></p>
-					<p class="isHave">有货</p>
+					<p class="isHave">
+						<span v-if="good.stock">有货</span>
+						<span v-else>无货</span>
+					</p>
 				</div>
-				<div class="goodsCar" v-if="!isShow"><i class="iconfont icon-jiarugouwuche1"></i></div>
+				<div class="goodsCar" v-if="!isShow"><i class="iconfont icon-jiarugouwuche"></i></div>
 			</div>
 		</div>
 		
@@ -27,7 +30,7 @@
 		</div>
 		
 		<div class="foot" v-if="isShow">
-			<i class="iconfont icon-roundcheck"></i>
+			<i class="iconfont" :class="allState?'icon-roundcheckfill':'icon-roundcheck'" @click="allDo()"></i>
 			<span>全选</span>
 			<input type="button" value="删除"/>
 		</div>
@@ -50,8 +53,18 @@
 	.mint-header-title {
 		font-size: .34rem;
 	}
+	/*=删除按钮==*/
+	.icon-shanchu{
+		font-size: .5rem;
+	}
 	
 	/*==商品*/
+	.icon-roundcheck{
+		color: #D3D3D3;
+	}
+	.icon-roundcheckfill{
+		color: #69ba31;
+	}
 	.goods {
 		padding: .3rem .4rem;
 		overflow: hidden;
@@ -160,9 +173,9 @@
 	.foot i{
 		vertical-align: middle;
 	}
-	.foot .icon-roundcheck{
+	.foot .iconfont{
 		display: inline-block;
-		font-size: .5rem;
+		font-size: .6rem;
 		margin-left: .4rem;
 	}
 </style>

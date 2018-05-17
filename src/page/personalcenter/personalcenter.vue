@@ -16,7 +16,7 @@
                  <span class="iconfont icon-2-copy"></span>
                  我的订单
              </span>
-             <span class="all_order">
+             <span class="all_order" @click="goAllrder">
                  查看全部订单
                  <span class="iconfont icon-youjiantou1"></span>
              </span>
@@ -28,12 +28,12 @@
                  {{item.title}}
              </li>
          </ul>
-         <p class="notice">
+         <p class="notice" @click="goRushtobuy">
              <span style="color: #fede00" class="iconfont icon-kuaisufan"></span>
              <span>限时秒杀</span>
              <span class="iconfont icon-youjiantou1"></span>
          </p>
-         <p class="notice">
+         <p class="notice" @click="collectionCenter">
              <span style="color: #da1f0c" class="iconfont icon-wujiaoxing21"></span>
              <span class="collection">我的收藏<i class="num_icon">1</i></span>
              <span class="iconfont icon-youjiantou1"></span>

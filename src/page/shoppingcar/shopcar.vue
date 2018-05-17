@@ -14,7 +14,7 @@
 		<div>
 			<div v-for="(item,index) in goods" :key="item.id" class="goods">
 				
-				<span class="iconfont box" :class="item.active?'icon-roundcheckfill':'icon-roundcheck'" @click="changebox(item,index)"></span>
+				<span class="iconfont box" :class="item.isActive?'icon-roundcheckfill':'icon-roundcheck'" @click="changebox(item,index)"></span>
 							
 				<img src="../../../static/images/1.png" alt="" class="goodsImg"/>
 				<div class="goodsDo">
@@ -22,11 +22,12 @@
 					<span class="goods_money">￥{{item.goodMoney}}</span>
 					<div class="changenum">
 						<span class="remNum"><i class="iconfont icon-jianhao" @click="changeMoney(item,-1)"></i></span>
-						<input type="number" :value="item.productQuantity" v-on:change="changeNum(index)"/>
+						<input type="number"  v-on:change="changeNum(index)"  v-model="item.goodsNum" disabled="disabled"/>
 						<span class="addNum"><i class="iconfont icon-jiahao1" @click="changeMoney(item,+1)"></i></span>
 					</div>
 				</div>
 				<span class="more">更多 <i class="iconfont icon-youjiantou2"></i></span>
+				<!--<span style="font-size: .15rem;">{{item.goodsTotal}}</span>-->
 				
 			</div>
 		</div>
@@ -37,11 +38,11 @@
 			<span class="allDo">全选</span>
 			<div class="pay">
 				<div class="copePay">
-					应付：<span>￥</span><span>2500</span>
+					应付：<span>￥</span><span>0</span>
 				</div>
 				<div class="realPay">
-					<p>总价：<span>25</span></p>
-					<p>优惠：<span>5.00</span></p>
+					<p>总价：<span>{{totalMoney}}</span></p>
+					<p>优惠：<span>0</span></p>
 				</div>
 			</div>
 			

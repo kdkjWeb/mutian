@@ -15,6 +15,12 @@ export default {
 					text: "精品水果"
 				}, {
 					text: "礼盒礼包"
+				}, {
+					text: "礼盒礼包"
+				}, {
+					text: "礼盒礼包"
+				}, {
+					text: "礼盒礼包"
 				}],
 				 proList:[
 			        {imgsrc:"static/images/u33.png",adname:"亲朋好友 首选礼盒亲朋好友 首选礼盒亲朋好友 首选礼盒",proname:"豆爱兔斯基大礼包 1147g",price:"105.00",oldprice:"24:00",id:1},

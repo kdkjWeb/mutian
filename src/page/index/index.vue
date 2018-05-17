@@ -15,10 +15,18 @@
 			<img :src="imgUrl" alt="" />
 		</div>
 
-		<div class="head_tit">
+		<!--<div class="head_tit">
 			<div>
 				<span class="titList" v-for="item in titList" :key="item.id">{{item.text}}</span>
 			</div>
+		</div>-->
+
+		<div class="sortMenu">
+			<ul class="sortMenu-ul">
+				<li class="cell" v-for="item in titList" :key="item.id">
+					<span>{{item.text}}</span>
+				</li>
+			</ul>
 		</div>
 
 		<div class="gift">
@@ -49,15 +57,15 @@
 		</div>
 
 		<div class="tit_box"><span>今日推荐</span></div>
-		
+
 		<div>
-			<mt-swipe :show-indicators="false"  :auto="0">
-			  <mt-swipe-item><img src="../../../static/images/u4.jpg"/></mt-swipe-item>
-			  <mt-swipe-item><img src="../../../static/images/u4.jpg"/></mt-swipe-item>
-			  <mt-swipe-item><img src="../../../static/images/u4.jpg"/></mt-swipe-item>
-			</mt-swipe>	
+			<mt-swipe :show-indicators="false" :auto="0">
+				<mt-swipe-item><img src="../../../static/images/u4.jpg" /></mt-swipe-item>
+				<mt-swipe-item><img src="../../../static/images/u4.jpg" /></mt-swipe-item>
+				<mt-swipe-item><img src="../../../static/images/u4.jpg" /></mt-swipe-item>
+			</mt-swipe>
 		</div>
-		
+
 		<div class="tit_boxFather">
 			<div class="tit_box"><span>限时秒杀</span></div>
 		</div>
@@ -83,7 +91,7 @@
 				<div class="progress-area">
 					<div class="buy-percent">已抢购55%</div>
 					<div class="progress">
-						<div class="progress-bar progress-bar-danger" style="width: 50%;">
+						<div class="progress-bar progress-bar-danger" style="width: 55%;">
 						</div>
 					</div>
 					<div class="buy-num">已抢购25件</div>
@@ -110,16 +118,52 @@
 			</div>
 		</div>
 
-		
-
 	</div>
 </template>
 
 <script>
-	export {default} from './indexCtr'
+	export {
+		default
+	}
+	from './indexCtr'
 </script>
 
 <style>
+	/*=====标题样式=========*/
+	
+	.sortMenu {
+		width: 100%;
+		background-color: #fff;
+		overflow-x: scroll;
+		-webkit-overflow-x: scroll;
+		border-bottom: .12rem solid #D3D3D3;
+	}
+	
+	.sortMenu::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+		background-color: #fff;
+	}
+	
+	.sortMenu-ul {
+		min-width: 8rem;
+		display: flex;
+		justify-content: flex-start;
+	}
+	
+	.sortMenu .cell {
+		display: inline-block;
+		font-size: 12px;
+		margin: 0px 1em;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		position: relative;
+		text-overflow: ellipsis;
+		word-break: keep-all;
+	}
+	/*================*/
+	
 	#index {
 		position: relative;
 		background-color: #F6F6F6;
@@ -161,7 +205,8 @@
 		top: .1rem;
 		color: #D3D3D3;
 	}
-	.search_right i{
+	
+	.search_right i {
 		font-size: .5rem;
 	}
 	
@@ -169,36 +214,13 @@
 		width: 100%;
 		display: block;
 	}
-	.head_tit{
-		width: 100%;
-		overflow-x: scroll;
-		
-	}
-	.head_tit div {
-		overflow-x: scroll;
-		width: auto;
-		overflow-y: hidden;
-		font-size: .15rem;
-		white-space: nowrap;
-	}
-	.head_tit span{
-		display: inline-block;	
-		min-width: 2rem;
-		padding: 0 2px;
-		height: .6rem;
-		line-height: .6rem;
-		text-align: center;
-	}
-	.head_tit{
-		border-bottom:.12rem solid #D3D3D3;
-	}
 	.gift img {
 		width: 100%;
 	}
 	
 	.cont_tit {
 		overflow: hidden;
-		border-bottom:.12rem solid #D3D3D3;
+		border-bottom: .12rem solid #D3D3D3;
 	}
 	
 	.cont_tit div {
@@ -209,22 +231,26 @@
 		font-weight: 800;
 		padding: .3rem 0;
 	}
-	.cont_tit img{
+	
+	.cont_tit img {
 		width: 80%;
 	}
-	.tit_boxFather{
+	
+	.tit_boxFather {
 		background-color: #D3D3D3;
 		padding: .05rem 0;
 		margin: .3rem 0;
 	}
+	
 	.tit_box {
 		margin: 0 auto;
 		background-color: #FD9A01;
 		width: 2rem;
-		padding:5px;
-		margin: .3rem  auto;
+		padding: 5px;
+		margin: .3rem auto;
 	}
-	.tit_box span{
+	
+	.tit_box span {
 		display: block;
 		height: .4rem;
 		line-height: .4rem;
@@ -234,16 +260,18 @@
 		color: #000000;
 		font-weight: 700;
 	}
-	
 	/*===轮播======*/
-	.mint-swipe{
+	
+	.mint-swipe {
 		height: 2rem;
 	}
-	.mint-swipe-item{
+	
+	.mint-swipe-item {
 		height: 2rem;
 		text-align: center;
 	}
-	.mint-swipe-item img{
+	
+	.mint-swipe-item img {
 		width: 60%;
 		height: 100%;
 	}
@@ -253,9 +281,11 @@
 		width: 100%;
 		height: 50px;
 	}
-	.price .before-sale{
+	
+	.price .before-sale {
 		margin-top: .2rem;
 	}
+	
 	.pro-title img {
 		width: 100px;
 		height: 30px;
@@ -296,18 +326,22 @@
 		border-bottom: 6px solid #D3D3D3;
 		overflow: hidden;
 	}
-	.kill-pro>div{
+	
+	.kill-pro>div {
 		float: left;
 	}
-	.kill-pro .left{
+	
+	.kill-pro .left {
 		width: 1.8rem;
 		height: 1.8rem;
-	}	
-	.kill-pro .left img{
+	}
+	
+	.kill-pro .left img {
 		width: 100%;
 		height: 100%;
 		border-radius: .1rem;
 	}
+	
 	.kill-pro .right {
 		width: 5.2rem;
 		height: 2rem;
@@ -472,8 +506,8 @@
 		color: gray;
 		font-size: 11px;
 		overflow: hidden;
-        text-overflow:ellipsis;
-    	white-space: nowrap;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 	
 	.textBox-price {
@@ -498,18 +532,17 @@
 	.textBox-price span:nth-of-type(2) {
 		color: grey;
 	}
+	
 	.addShopBox {
 		width: .5rem;
 		text-align: center;
 		background: red;
 		border-radius: 6px;
-		padding:0 .1rem;
+		padding: 0 .1rem;
 		color: white;
 		font-size: .1rem;
 		height: .3rem;
 		line-height: .3rem;
 		margin-top: .08rem;
 	}
-
-
 </style>

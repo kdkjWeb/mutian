@@ -33,7 +33,25 @@ export default{
             this.$router.push({
                 name: 'personal'
             })
-        }
+        },
+//      =====跳转收藏
+         collectionCenter(){
+            this.$router.push({
+                name: 'collection'
+            })
+        },
+//      =====跳转我的订单
+		goAllrder(){
+			this.$router.push({
+				name:'myorder'
+			})
+		},
+//		========跳转到限时抢购
+		goRushtobuy(){
+			this.$router.push({
+				name:'rushtobuy'
+			})
+		}
     },
     created() {  
         window.scroll(0, 0);  

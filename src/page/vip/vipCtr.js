@@ -57,7 +57,9 @@ export default {
         })
         break;
         case 2:
-        console.log('推广二维码')
+         this.$router.push({
+          name: 'twocode'
+        })
         break;
         case 3:
         this.$router.push({
@@ -75,7 +77,12 @@ export default {
         })
         break;
       }
-    }	
+    },
+    goAllwage(){
+    	this.$router.push({
+          name: 'allwage'
+        })
+    }
   },
   watch: {
     // 监听selected属性   切换页面

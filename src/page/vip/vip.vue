@@ -17,7 +17,7 @@
     <div class="banner">
       <p class="sum">当月总工资：</p>
       <p class="money"><span>200.60</span><span class="yuan">元</span></p>
-      <p class="detail">查看详情 <i class="iconfont icon-shuangjiantou"></i></p>
+      <p class="detail" @click="goAllwage">查看详情 <i class="iconfont icon-shuangjiantou"></i></p>
     </div>
 
     <mt-navbar v-model="selected">

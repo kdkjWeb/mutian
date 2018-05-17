@@ -1,6 +1,7 @@
 export default {
 	data() {
 		return {
+			totalMoney:0, //总金额
 			full: 15, //满多少包邮
 			reduce: 5, //差多少
 			allState: false, //全选状态
@@ -8,7 +9,7 @@ export default {
 			goods: [{
 				goodsName: "冷吃兔",
 				goodsImg: '', //商品图片
-				goodMoney: 25, //商品价格
+				goodMoney: 2, //商品价格
 				goodId: 1 //id
 			}, {
 				goodsName: "辣子鸡",
@@ -18,65 +19,93 @@ export default {
 			}, {
 				goodsName: "芋儿鸡",
 				goodsImg: '',
-				goodMoney: 25,
+				goodMoney: 5,
 				goodId: 3
 			}]
 		}
 	},
+	mounted: function() {
+//		=====为所有商品信息添加一个数量字段
+		let _this = this;
+		_this.goods.forEach(function(item, index) {
+			if(item.goodsNum == undefined) {   //添加商品数量属性
+				_this.$set(item,'goodsNum',0)
+			};
+			
+			if(item.goodsTotal  == undefined){   //添加商品 单个总价 属性
+				_this.$set(item,'goodsTotal',0)
+			}
+			
+			if(item.isActive  == undefined){
+				_this.$set(item,'isActive',false)   //添加商品是否选中属性
+			}
+			
+		});
+	},
 	methods: {
-		allDo() { //全选按钮事件
+		 //=========全选按钮事件
+		allDo() {
 			let falg = this.allState;
 			let _this = this;
 
-			if(falg == false) {
+			//如果是没有全部选中状态
+			if(falg == false) {  
+				_this.checkboxModel = [];
 				this.goods.forEach(function(item, index) { //遍历data 里的 goods 数组
-					_this.$set(item, "active", true); //遍历所有状态，将状态设为全选状态
-					_this.checkboxModel.push(item.goodId);
+					item.isActive = true;
+					_this.checkboxModel.push('');
 				});
 				_this.allState = true;
 			} else {
 				this.goods.forEach(function(item, index) { //遍历data 里的 goods 数组
-					_this.$set(item, "active", false); //遍历所有状态，将状态设为不选中状态
+					_this.$set(item, "isActive", false); //遍历所有状态，将状态设为不选中状态\
 				});
 				_this.allState = false;
 				_this.checkboxModel = [];
 			}
+			
+			this.calTotalMoney();  //计算总价
 		},
-		changebox(item, index) { //每个单选按钮点击事件
+		
+		//===============每个单选按钮点击事件
+		changebox(item, index) { 
 			let _this = this;
-			if(item.active) { //如果点击过添加item 不存在属性 active 为false
-				_this.$set(item, 'active', false); //为item添加不存在的属性，需要使用vue提供的Vue.set( object, key, value )方法。   
-				_this.checkboxModel.splice(index, 1); //删除取消选中id出数组
-				console.log(_this.checkboxModel)
-			} else { //如果没有选中 ，为item添加 active属性为true
-				_this.$set(item, 'active', true);
-				_this.checkboxModel.push(item.goodId); //添加选中的商品id进数组
-			}
-			console.log(item.active);
-		},
-
-		//		===============
-		changeMoney: function(item, type) {
-			let _this = this;
-			if(item.productQuantity){
-				console.log('1')
-				item.productQuantity = item.productQuantity++
-				
+			console.log(item.isActive)
+			if(item.isActive) {
+				item.isActive = false;
+				_this.checkboxModel.splice(0, 1); 
 			}else{
-				console.log('2')
-				_this.$set(item,'productQuantity',0);
-				item.productQuantity = item.productQuantity++
+				item.isActive = true;
+				_this.checkboxModel.push('');
 			}
-//			if(type < 0) {
-//				item.productQuantity--;
-//				if(item.productQuantity < 1) {
-//					item.productQuantity = 1;
-//				}
-//			} else {
-//				this.$set(item,'productQuantity');
-//				item.productQuantity = productQuantity++
-//			}
+			this.calTotalMoney(); //计算总价
+		},
 
+		//		=========加减数量======
+		changeMoney: function(item, type) {
+			if(item.goodsNum != undefined) {
+				if(type > 0) {   //按加按钮时加一
+					item.goodsNum = item.goodsNum + 1;
+					item.goodsTotal = item.goodMoney*item.goodsNum;
+				} else {
+					if(item.goodsNum != 0){  //  当数量不等于0的时候继续减一
+						item.goodsNum = item.goodsNum - 1;
+						item.goodsTotal = item.goodMoney*item.goodsNum;
+					}
+				}
+			}
+			
+			this.calTotalMoney(); //计算总价
+		},
+		
+//		=====计算总金额==========
+		calTotalMoney:function(){
+			this.totalMoney = 0;   //再次初始化 总金额为0
+			this.goods.forEach((item,index)=>{  //遍历每个商品
+				if(item.isActive){ //如果商品为选中状态  
+					this.totalMoney = this.totalMoney+item.goodsTotal;   //总价等于 总价加商品总价
+				}
+			})
 		}
 
 	},
@@ -92,4 +121,6 @@ export default {
 			deep: true
 		}
 	}
+	
+
 }
