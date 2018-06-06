@@ -1,7 +1,7 @@
 <template>
   <div class="forgetpas">
       <div class="title">
-            <i class="mint-toast-icon mintui mintui-back"></i>
+            <i class="mint-toast-icon mintui mintui-back" @click="back"></i>
             忘记密码
       </div>
 
@@ -28,7 +28,7 @@
 export {default} from './forgetpasCtr'
 </script>
 
-<style>
+<style scoped>
 /* .forgetpas{
     width: 100%;
     height: 100%;

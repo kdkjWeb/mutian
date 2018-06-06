@@ -1,12 +1,10 @@
 <template>
 	<div class="order">	<!--确认订单--> 
 		<!--头部-->
-		<mt-header title="确认订单">
-			<router-link to="/" slot="left">
-				<mt-button icon="back"></mt-button>
-			</router-link>
-			<!--<mt-button icon="more" slot="right"></mt-button>-->
-		</mt-header>
+		  <div class="title">
+            <i class="mint-toast-icon mintui mintui-back" @click="back"></i>
+   			        确认订单
+         </div> 
 
 		<!--添加收货地址-->
 		<div class="addAds">
@@ -59,10 +57,10 @@
 				<span>商品总额</span>
 				<span class="moneyRight">￥ <span>25.00</span></span>
 			</div>
-			<div>
+			<!--<div>
 				<span>运费</span>
 				<span class="moneyRight">￥ <span>25.00</span></span>
-			</div>
+			</div>-->
 		</div>
 		
 		<!--====提交订单=====-->
@@ -84,7 +82,21 @@
 	from './confirmorderCtr'
 </script>
 
-<style>
+<style scoped>
+	.title{
+    position: relative;
+    height: .9rem;
+    line-height: .9rem;
+    text-align: center;
+    width: 100%;
+    font-size: .34rem;
+    background-color: #fff;
+    margin-bottom: .05rem;
+}
+.title .mintui{
+    position: absolute;
+    left: .35rem;
+}
 	/*mint ui样式覆盖*/
 	
 	.mint-header {

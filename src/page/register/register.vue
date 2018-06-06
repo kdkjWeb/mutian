@@ -26,7 +26,7 @@ export {default} from './registerCtr'
 </script>
 
 
-<style>
+<style scoped>
 /* .register{
     width: 100%;
     height: 100%;

@@ -15,7 +15,9 @@ Vue.$indicator = Vue.prototype.$indicator = Indicator
 import '@/assets/font/iconfont.css'
 
 
-
+//===========引入自定义组件==
+import common from '@/assets/js/common.js'
+Vue.prototype.$common = common;
 
 //获取vuex
 import store from './store/store.js'   //vuex

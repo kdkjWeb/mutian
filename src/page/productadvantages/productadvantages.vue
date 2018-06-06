@@ -1,7 +1,7 @@
 <template>
   <div class="productadvantages">
         <div class="title">
-            <i class="mint-toast-icon mintui mintui-back"></i>
+            <i class="mint-toast-icon mintui mintui-back" @click="back"></i>
             产品优势
         </div> 
         <div class="container">
@@ -25,7 +25,7 @@
                   </p>
                 </li>
             </ul>
-            <P class="purchase">去选购吧<span class="iconfont icon-icon-right"></span></P>
+            <P class="purchase"  @click="back">去选购吧<span class="iconfont icon-icon-right"></span></P>
         </div>
   </div>
 </template>

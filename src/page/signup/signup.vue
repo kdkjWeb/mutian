@@ -1,7 +1,7 @@
 <template>
   <div class="signup">
          <div class="title">
-            <i class="mint-toast-icon mintui mintui-back"></i>
+            <i class="mint-toast-icon mintui mintui-back" @click="back"></i>
             会员注册
          </div> 
          <ul class="info_list">

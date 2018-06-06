@@ -56,7 +56,7 @@ export {default} from './bondbankcardCtr'
 </script>
 
 
-<style>
+<style scoped>
 /* .bondbankcard{
     width: 100%;
     height: 100%;

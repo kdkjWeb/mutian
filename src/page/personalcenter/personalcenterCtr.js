@@ -1,6 +1,13 @@
+import { mapGetters } from 'vuex';
+
 export default{
     data(){
         return{
+        	user:{
+        		nickname:'',
+        		username:''
+        	},//用户
+        	FavoriteNum:'0', //收藏数量
             mineOrder: [
                 {
                    title: '待付款',
@@ -55,9 +62,29 @@ export default{
 			this.$router.push({
 				name:'rushtobuy'
 			})
+		},
+//		====获取我的收藏数量===========
+		
+		getFavorite(){
+			this.$post('favorite/getFavoriteList',{
+				
+			}).then(res=>{
+				console.log(res);
+				this.FavoriteNum = res.data.length;
+				
+			})
 		}
+		
     },
-    created() {  
-        window.scroll(0, 0);  
-    } 
+    created() { 
+        window.scroll(0, 0);
+		this.getFavorite();
+		
+		this.user.nickname = sessionStorage.getItem("nick_name");  //获取昵称
+		this.user.username = sessionStorage.getItem("user_name");  //获取用户名
+		
+    }, 
+    computed: {
+    	
+	}
 }

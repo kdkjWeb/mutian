@@ -1,15 +1,13 @@
 <template>   
 	<div class="rushtobuy"><!--限时秒杀-->
 			<!--头部-->
-		<mt-header title="限时秒杀">
-			<router-link to="/" slot="left">
-				<mt-button icon="back"></mt-button>
-			</router-link>
-			<!--<mt-button icon="more" slot="right"></mt-button>-->
-		</mt-header>
+		 <div class="title">
+            <i class="mint-toast-icon mintui mintui-back" @click="back"></i>
+	            	限时秒杀
+	      </div>
 		
 		<!--抢购时间-->
-		<div class="buyTime">
+		<!--<div class="buyTime">
 			<div>
 				<span>08:00</span>
 				<span>已结束</span>
@@ -22,7 +20,7 @@
 				<span>20:00</span>
 				<span>准备抢购</span>
 			</div>
-		</div>
+		</div>-->
 		
 		<!--抢购标题-->
 		<div class="sayNow">
@@ -33,21 +31,21 @@
 		<div>
 			<div class="kill-pro" v-for="(good,index) in gooDs" :key="good.id">
 				<div class="left">
-					<img src="../../assets/png/1.png" alt="">
+					<img :src ="myurl + good.picture" alt="">
 				</div>
 				<div class="right">
-					<div class="name">{{good.name}} {{good.weight}}g</div>
+					<div class="name">{{good.name}}</div>
 					<div class="price">
-						<div class="after-sale">￥{{good.price}}</div>
-						<div class="before-sale">￥{{good.Oprice}}</div>
+						<div class="after-sale">￥{{good.priceSpike}}</div>
+						<div class="before-sale">￥{{good.disPrice}}</div>
 						<div class="grab">马上抢</div>
 					</div>
 					<div class="progress-area">
-						<div class="buy-percent">已抢购{{good.percent}}%</div>
+						<div class="buy-percent">已抢购{{(good.spikeNum - good.spikeLeft) / good.spikeNum *100}}%</div>
 						<div class="progress">
-							<div class="progress-bar progress-bar-danger" :style="'width:'+ good.percent +'%;'"></div>
+							<div class="progress-bar progress-bar-danger" :style="'width:'+ (good.spikeNum - good.spikeLeft) / good.spikeNum *100 +'%;'"></div>
 						</div>
-						<div class="buy-num">已抢购{{good.buyNum}}件</div>
+						<div class="buy-num">已抢购{{good.spikeNum - good.spikeLeft}}件</div>
 					</div>
 				</div>
 			</div>
@@ -55,9 +53,9 @@
 		
 		
 		<!--===购物车按钮=====-->
-		<div class="addCar">
+		<!--<div class="addCar">
 			<i class="iconfont icon-addCart"></i>
-		</div>
+		</div>-->
 		
 	</div>
 </template>
@@ -66,9 +64,22 @@
 	export {default} from './rushtobuyCtr'
 </script>
 
-<style>
+<style scoped>
+.title{
+    position: relative;
+    height: .9rem;
+    line-height: .9rem;
+    text-align: center;
+    width: 100%;
+    font-size: .34rem;
+    background-color: #fff;
+}
+.title .mintui{
+    position: absolute;
+    left: .35rem;
+}
 	/*mint ui样式覆盖*/
-	.mint-header {
+.mint-header {
 		background-color: #FFFFFF;
 		color: #000000;
 	}

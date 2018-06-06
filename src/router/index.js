@@ -35,6 +35,10 @@ import myteam from '@/page/myteam/myteam'  //我的团队
 import mycustomer from '@/page/mycustomer/mycustomer'   //我的客户
 import twocode from '@/page/twocode/twocode'  //推广二维码
 import forward from '@/page/forward/forward'  //转发
+import recommend from '@/page/recommend/recommend' //首页推荐
+import goodslist from '@/page/goodslist/goodslist'  //热销商品列表，和商品分类点击的列表
+import search from '@/page/search/search' //搜索
+
 
 import home from '@/page/home/home'
 
@@ -54,6 +58,16 @@ export default new Router({
           path: '/',
           name: 'index',
           component: index,
+          redirect: 'recommend',
+          children:[{
+          	path: '/recommend',
+	          name: 'recommend',
+	          component: recommend
+          },{
+          	 path: '/goodslist',
+	          name: 'goodslist',
+	          component: goodslist
+          }]
         },{
           path: '/memberbenefits',
           name: 'memberbenefits',
@@ -176,6 +190,10 @@ export default new Router({
     	path: '/forward',
       name: 'forward',
       component: forward
+    },{
+    	path: '/search',
+      name: 'search',
+      component: search
     }
   ]
 })

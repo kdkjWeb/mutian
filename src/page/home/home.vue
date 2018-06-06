@@ -76,8 +76,19 @@ export default {
             return this.$store.getters.getUserInfo
         }
     },
-    mounted() {
-        
+    created(){
+    	let path = this.$route.path;
+		switch(path) {
+			case '/memberbenefits': //会员
+				this.activeIndex = 1;
+				break;
+			case '/shoppingcar': //购物车
+				this.activeIndex = 2;
+				break;
+			case '/personalcenter': //个人中心
+				this.activeIndex = 3;
+				break;	
+		}
     }
 }
 </script>
@@ -91,6 +102,7 @@ export default {
     width: 100%;
     height: 1.1rem;
     background-color: #fff;
+    z-index: 100;
   }
   .footer ul{
     display: flex;

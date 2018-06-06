@@ -1,31 +1,31 @@
 export default{
     data(){
         return{
-          gooDs:[{
-          	id:55,
-          	name:'冷吃兔',
-          	weight:200, //重量
-          	price:50,   //现价
-          	Oprice:200,   //原价
-          	percent:30,  //已抢购
-          	buyNum:15  //共抢购
-          },{
-          	id:444,
-          	name:'辣子鸡',
-          	weight:210, //重量
-          	price:50,   //现价
-          	Oprice:2650,   //原价
-          	percent:10,  //已抢购
-          	buyNum:15  //共抢购
-          },{
-          	id:5,
-          	name:'芋儿鸡',
-          	weight:500, //重量
-          	price:50,   //现价
-          	Oprice:120,   //原价
-          	percent:80,  //已抢购
-          	buyNum:50  //共抢购
-          }]
+      	  myurl:'',  //图片地址	
+          gooDs:[]
         }
-    }
+    },
+    methods: {
+    	getKill(){
+    		this.$get('goods/getSpikeGoods',{
+    		}).then(res=>{
+    			if(res.code==0){
+//  				console.log(res)
+					this.gooDs = res.data
+    			}
+    			
+    		})
+    	},
+    	//		=======返回上级=====
+		 back(){
+        	this.$router.go(-1);
+        },
+    	
+    	
+    	
+    },
+    created() {
+		this.getKill();  //获取购物车列表
+		this.myurl = this.$common.imgUrl();  //获取图片地址公用
+	},
 }

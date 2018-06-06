@@ -34,7 +34,7 @@ export default{
             let num = 60
             let timer = setInterval(()=>{
                 num -- 
-                this.verification ='请'+num + 's后再试'
+                this.verification = num + 's'
                 if(num == 0){
                     clearInterval(timer)
                     this.verification = '获取验证码'
@@ -85,6 +85,13 @@ export default{
                     },2000)
                 }
             })
+        },
+//      ====返回==
+        back(){
+        	this.$router.go(-1);
         }
+// ============
+    
+    
     }
 }

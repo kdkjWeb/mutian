@@ -1,38 +1,39 @@
 <template> <!--我的收藏-->
 	<div class="collection">
-		<mt-header title="我的收藏">
-			<router-link to="/" slot="left">
-				<mt-button icon="back"></mt-button>
-			</router-link>
-			<mt-button slot="right" @click="change" > <i class="iconfont icon-shanchu" v-if="!isShow"></i> <span v-if="isShow">完成</span></mt-button>
-		</mt-header>
-		
+		 <div class="title">
+            <i class="mint-toast-icon mintui mintui-back" @click="back"></i>
+	            	我的收藏
+	        	<div class="titRight" @click="change">
+	        		  <i class="iconfont icon-shanchu" v-if="!isShow"></i> <span v-if="isShow">完成</span>	
+	        	</div>
+	      </div>
 		<div>   <!--我的收藏商品-->
-			<div class="goods" v-for="(good,index) in goodsList" :key="good.id">
-				<div class="goodsDo" v-if="isShow"><i class="iconfont" :class="good.isActive?'icon-roundcheckfill':'icon-roundcheck'" @click="changeActive(good,index)"></i></div>
-				<img src="../../../static/images/12.png" class="goodsImg"/>
+			<div class="goods" v-for="(item,index) in goodsList" :key="item.id">
+				<div class="goodsDo" v-if="isShow"><i class="iconfont" :class="item.isActive?'icon-roundcheckfill':'icon-roundcheck'" @click="changeActive(item,index)"></i></div>
+				<img :src="myurl + item.picture" class="goodsImg"/>
 				<div class="goods_Msg">
-					<p class="goodsName"><span>{{good.adname}}</span>&nbsp; <span>200g</span></p>
-					<p class="goodsMoney">￥<span>{{good.price}}</span></p>
+					<p class="goodsName"><span>{{item.name}}</span>&nbsp; <span>200g</span></p>
+					<p class="goodsMoney">￥<span>{{item.market_price}}</span></p>
 					<p class="isHave">
-						<span v-if="good.stock">有货</span>
-						<span v-else>无货</span>
+						<span>有货</span>
+						<!--<span v-if="good.stock">有货</span>-->
+						<!--<span v-else>无货</span>-->
 					</p>
 				</div>
-				<div class="goodsCar" v-if="!isShow"><i class="iconfont icon-jiarugouwuche"></i></div>
+				<div class="goodsCar" v-if="!isShow" @click="addShopcar(item.goods_id)"><i class="iconfont icon-jiarugouwuche"></i></div>
 			</div>
 		</div>
 		
 		<!--===购物车按钮=====-->
-		<div class="addCar" v-if="!isShow">
-			<span>10</span>
+		<div class="addCar" v-if="!isShow" @click="goShopcar">
+			<span>{{shopCarNum}}</span>
 			<i class="iconfont icon-gouwuche"></i>
 		</div>
 		
 		<div class="foot" v-if="isShow">
 			<i class="iconfont" :class="allState?'icon-roundcheckfill':'icon-roundcheck'" @click="allDo()"></i>
 			<span>全选</span>
-			<input type="button" value="删除"/>
+			<input type="button" value="删除" @click="delGoods"/>
 		</div>
 		
 		
@@ -44,7 +45,26 @@
 	export {default} from './collectionCtr'
 </script>
 
-<style>
+<style scoped>
+.title{
+    position: relative;
+    height: .9rem;
+    line-height: .9rem;
+    text-align: center;
+    width: 100%;
+    font-size: .34rem;
+    background-color: #fff;
+}
+.title .mintui{
+    position: absolute;
+    left: .35rem;
+}
+.titRight{
+	position: absolute;
+	float: right;
+	right: .5rem;
+	top: 0;
+}	
 /*mint ui样式覆盖*/
 	.mint-header {
 		background-color: #FFFFFF;

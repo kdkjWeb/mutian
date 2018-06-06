@@ -1,39 +1,9 @@
 export default {
 	data() {
 		return {
-			goodsList: [{
-					imgsrc: "static/images/u33.png",
-					adname: "芋儿鸡",
-					price: "105.00",
-					oldprice: "24:00",
-					id: 1,
-					stock: true
-				},
-				{
-					imgsrc: "static/images/u2.jpg",
-					adname: "小龙虾",
-					price: "102.00",
-					oldprice: "2.00",
-					id: 2,
-					stock: true
-				},
-				{
-					imgsrc: "static/images/u4.jpg",
-					adname: "冷吃兔",
-					price: "102.00",
-					oldprice: "24.00",
-					id: 3,
-					stock: false
-				},
-				{
-					imgsrc: "static/images/u6.png",
-					adname: "麻辣鸡",
-					price: "1002.00",
-					oldprice: "24.00",
-					id: 4,
-					stock: true
-				},
-			],
+			myurl: '', //img 公用地址
+			shopCarNum:0,
+			goodsList: [],
 			isShow: false, //是否是编辑状态
 			checkboxModel: [], //选中的商品
 			allState: false, //全选状态
@@ -49,7 +19,18 @@ export default {
 		})
 	},
 	methods: {
-		change: function() {   //编辑状态改变
+		
+		mNum(){
+			let _this = this;
+
+			_this.goodsList.forEach(function(item, index) { //给商品添加选中状态
+				if(item.isActive == undefined) {
+					_this.$set(item, 'isActive', false);
+				};
+			})
+		},
+
+		change() {   //编辑状态改变
 			let Show = this.isShow;
 
 			switch(Show) {
@@ -62,7 +43,7 @@ export default {
 			}
 		},
 
-		changeActive: function(item, index) {   // 选中按钮点击
+		changeActive(item, index) {   // 选中按钮点击
 			let _this = this;
 			if(item.isActive) {
 				item.isActive = false;
@@ -73,7 +54,7 @@ export default {
 			}
 		},
 		
-		allDo:function(){
+		allDo(){
 			let falg = this.allState;
 			let _this = this;
 
@@ -92,10 +73,97 @@ export default {
 				_this.allState = false;
 				_this.checkboxModel = [];
 			}
-		}
+		},
+		
+//		获取收藏列表
+
+		getFavoriteList(){
+			this.$post('favorite/getFavoriteList',{
+			}).then(res=>{
+				if(res.code==0){
+					this.goodsList = res.data;
+					this.mNum();
+				}
+			})
+		},
+		
+//		=============获取购物车数量======
+		getshopcarList(){
+			let _this = this;
+			_this.$post('shoppingCart/getShoppingCartList',{
+			}).then(res=>{
+				console.log(res)
+				if(res.code == 0){
+					this.shopCarNum = res.data.list.length;
+				}
+			})
+		},
+		
+//		==========跳转购物车
+		goShopcar(){
+			this.$router.push({
+				name:'shoppingcar'
+			})
+		},
+		
+//	===========收藏的加入购物车=====	
+		addShopcar(id){
+			this.$post('shoppingCart/addShoppingCart',{
+				goodsId:id
+			}).then(res=>{
+				if(res.code==0){
+					this.$toast('加入成功');
+					this.getshopcarList()   //====获取购物车数量======
+				}
+			})
+		},
+		
+//		========删除收藏==============
+		delGoods(){
+			let arr = [];
+			this.goodsList.forEach((item,index)=>{  //遍历每个商品
+				if(item.isActive){ //如果商品为选中状态  
+					arr.push(item.id);
+				}
+			})
+			if(arr.length<1){
+				return false
+			}
+			let delList = arr.join(',');
+			
+			this.$get('favorite/delFavorites',{
+				ids:delList
+			}).then(res=>{
+				if(res.code==0){
+					var newArr = [];
+					
+					this.goodsList.forEach((item,index)=>{  //遍历每个商品
+						if(!item.isActive){ //如果商品为非选中状态  
+							newArr.push(item);
+						}
+					})
+					this.goodsList = newArr;
+					this.allState = false; //全选状态
+					this.checkboxModel = []; //选中的商品id集合
+					this.isShow = false; //是否是编辑状态
+					this.allState = false, //全选状态
+					
+					this.$toast('删除成功');
+				}
+				
+			})
+		},
+//		=======返回上级=====
+		 back(){
+        	this.$router.go(-1);
+        },
 		
 	},
-	
+	created() {
+		this.getFavoriteList();  //获取列表
+		this.getshopcarList()   //====获取购物车数量======
+		this.myurl = this.$common.imgUrl();  //获取图片地址公用
+	},
 	watch: { //深度 watcher
 		'checkboxModel': {
 			handler: function(val, oldVal) {

@@ -120,5 +120,6 @@ import Vue from 'vue'
                 reject(err)
             })
         })
-    }
+    },
+ 
  }

@@ -1,32 +1,33 @@
 <template>
 	<div class="shopcar">
 		<!--头部-->
-		<mt-header title="购物车">
-		  <mt-button slot="right">编辑</mt-button>
+		<mt-header title="购物车" class="myheader">
+		  <mt-button v-if="!isShow" slot="right" @click="showGoods">编辑</mt-button>
+		  <mt-button v-if="isShow" slot="right" @click="showGoods">完成</mt-button>
 		</mt-header>
 		<!--===差多少包邮========-->
-		<div class="difference">
+		<!--<div class="difference">
 			<div class="subtraction">全场满<span>{{full}}</span>元包邮，还差<span>{{reduce}}</span>元</div>
 			<div class="collect">立即凑单</div>
-		</div>
+		</div>-->
 		
 		<!--====商品列表=============-->
-		<div>
-			<div v-for="(item,index) in goods" :key="item.id" class="goods">
+		<div style="padding: 1rem 0;">
+			<div v-for="(item,index) in goods" :key="item.goods_id" class="goods">
 				
 				<span class="iconfont box" :class="item.isActive?'icon-roundcheckfill':'icon-roundcheck'" @click="changebox(item,index)"></span>
 							
-				<img src="../../../static/images/1.png" alt="" class="goodsImg"/>
+				<img :src="myurl + item.picture" alt="" class="goodsImg"/>
 				<div class="goodsDo">
-					<span class="goodsName">{{item.goodsName}}</span>
-					<span class="goods_money">￥{{item.goodMoney}}</span>
+					<span class="goodsName">{{item.name}}</span>
+					<span class="goods_money">￥{{item.market_price}}</span>
 					<div class="changenum">
 						<span class="remNum"><i class="iconfont icon-jianhao" @click="changeMoney(item,-1)"></i></span>
-						<input type="number"  v-on:change="changeNum(index)"  v-model="item.goodsNum" disabled="disabled"/>
+						<input type="number"  v-on:change="changeNum(index)"  v-model="item.number" disabled="disabled"/>
 						<span class="addNum"><i class="iconfont icon-jiahao1" @click="changeMoney(item,+1)"></i></span>
 					</div>
 				</div>
-				<span class="more">更多 <i class="iconfont icon-youjiantou2"></i></span>
+				<!--<span class="more">更多 <i class="iconfont icon-youjiantou2"></i></span>-->
 				<!--<span style="font-size: .15rem;">{{item.goodsTotal}}</span>-->
 				
 			</div>
@@ -36,18 +37,22 @@
 		<div id="goodFood">
 			<span class="iconfont box" :class="allState?'icon-roundcheckfill':'icon-roundcheck'" @click="allDo()"></span>
 			<span class="allDo">全选</span>
-			<div class="pay">
+			<div class="pay" v-if="!isShow">
 				<div class="copePay">
-					应付：<span>￥</span><span>0</span>
+					应付：<span>￥</span><span>{{totalMoney}}</span>
 				</div>
-				<div class="realPay">
+				<!--<div class="realPay">
 					<p>总价：<span>{{totalMoney}}</span></p>
 					<p>优惠：<span>0</span></p>
-				</div>
+				</div>-->
 			</div>
 			
-			<div id="payDo">
+			<div id="payDo" v-if="!isShow">
 				<span>去结算</span>(<span>{{checkboxModel.length}}</span>)
+			</div>
+			
+			<div id="delGood" v-if="isShow" @click="delGoods">
+				<span>删除</span>(<span>{{checkboxModel.length}}</span>)
 			</div>
 			
 		</div>
@@ -59,11 +64,18 @@
 	export {default} from './shopcarCtr.js'
 </script>
 
-<style>
+<style scoped>
+	.myheader{
+		position: fixed;
+		top: 0;
+		width: 100%;
+		left: 0;
+	}
 	/*=头部==*/
 	.mint-header{
 		background-color: #FFFFFF;
 		color: #000000;
+		border-bottom:1px solid #cccccc ;
 	}
 	.mint-header-title{
 		font-size: .34rem;
@@ -216,6 +228,8 @@
 		font-size: .3rem;
 		font-weight: 500;
 		margin-bottom: .1rem;
+		height: .7rem;
+		line-height: 1rem;
 	}
 	.copePay span{
 		color: red;
@@ -224,7 +238,7 @@
 		color:#828282;
 		font-size: .2rem;
 	}
-	#payDo{
+	#payDo,#delGood{
 		float: right;
 		text-align: center;
 		width: 2rem;

@@ -3,5 +3,10 @@ export default{
         return{
             
         }
+    },
+     methods:{
+        back(){
+		    this.$router.go(-1);
+		}
     }
 }

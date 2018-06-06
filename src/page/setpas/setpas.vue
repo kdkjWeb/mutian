@@ -15,7 +15,7 @@ export {default} from './setpasCtr'
 </script>
 
 
-<style>
+<style scoped>
 .setpas{
     padding-top: 1.1rem;
 }

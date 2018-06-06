@@ -28,7 +28,7 @@
 export {default} from './changepasCtr'
 </script>
 
-<style>
+<style scoped>
 /* .changepas{
     width: 100%;
     height: 100%;

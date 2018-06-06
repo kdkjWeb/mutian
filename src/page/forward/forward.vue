@@ -49,7 +49,7 @@
 	export {default} from './forwardCtr'
 </script>
 
-<style>
+<style scoped>
 	/*mint ui样式覆盖*/
 	.mint-header {
 		background-color: #FFFFFF;

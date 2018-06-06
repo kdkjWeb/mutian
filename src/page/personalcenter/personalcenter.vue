@@ -1,11 +1,12 @@
+
 <template>
   <div class="personalcenter">
          <div class="personalcenter_banner">
              <div class="user_header" @click="personalCenter">
                  <img src="../../assets/png/1.png" width="100%" height="100%" alt="头像">
              </div>
-             <p>梦想</p>
-             <p>15923634567</p>
+             <p>{{ user?user.nickname:'未登陆' }}</p>  <!-- 用户名 -->
+             <p>{{ user.username }}</p>  <!-- 电话 -->
              <p class="user_header_address">管理收货地址
                   <span class="iconfont icon-youjiantou1"></span>
              </p>
@@ -28,21 +29,27 @@
                  {{item.title}}
              </li>
          </ul>
+         
          <p class="notice" @click="goRushtobuy">
              <span style="color: #fede00" class="iconfont icon-kuaisufan"></span>
              <span>限时秒杀</span>
              <span class="iconfont icon-youjiantou1"></span>
          </p>
+         
          <p class="notice" @click="collectionCenter">
              <span style="color: #da1f0c" class="iconfont icon-wujiaoxing21"></span>
-             <span class="collection">我的收藏<i class="num_icon">1</i></span>
-             <span class="iconfont icon-youjiantou1"></span>
+             
+             <span class="collection">我的收藏 <span class="num_icon">{{FavoriteNum}}</span> </span>
+            
+            <span class="iconfont icon-youjiantou1"></span>
          </p>
+         
          <p class="notice">
              <span style="color: #1bf82c" class="iconfont icon-shezhi"></span>
              <span>设置</span>
              <span class="iconfont icon-youjiantou1"></span>
          </p>
+
 
          <div class="login_out" @click="loginOut">退出登录</div>
   </div>
@@ -179,18 +186,21 @@ export {default} from './personalcenterCtr'
     position: relative;
 }
 .num_icon{
-    position: absolute;
-    right: -.52rem;
+    position: absolute !important;
+    right: -.52rem !important;
     top: -.2rem;
     display: inline-block;
     color: #fff;
     background-color: #e82a1a;
     width: .35rem;
     height: .35rem;
-    border-radius: 50%;
+    border-radius:.35rem;
     text-align: center;
     line-height: .35rem;
-    font-size: .3rem;
+    font-size: .15rem !important;
+    text-align: center;
+    padding: 0 !important;
+    font-weight: 100 !important;
 }
 </style>
 
